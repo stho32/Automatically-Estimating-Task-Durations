@@ -1,0 +1,27 @@
+[
+    {
+        "Text" : "Ticketsystem: Add new user",
+        "DurationInSeconds" : 150
+    },
+    {
+        "Text" : "Bookkeeping: Change email for customer",
+        "DurationInSeconds" : 240
+    },
+    {
+        "Text" : "Website: update the adwords api to a new version",
+        "DurationInSeconds" : 6850
+    },
+    {
+        "Text" : "Ticketsystem: Add new user",
+        "DurationInSeconds" : 140
+    },
+    {
+        "Text" : "Bookkeeping: Change email for customer",
+        "DurationInSeconds" : 123
+    },
+    {
+        "Text" : "Website: update the adwords api to a new version",
+        "DurationInSeconds" : 9482
+    }
+]
+
