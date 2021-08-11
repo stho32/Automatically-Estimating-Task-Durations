@@ -1,6 +1,6 @@
-# Duration-Per-Word
+# Estimating Task Durations
 
-An automated duration guess based on the words used to describe a task
+Automatically
 
 ## The problem
 
@@ -32,7 +32,9 @@ Look yourself:
 
 ![experiment.ps1](images/experiment.ps1.png)
 
+## More
 
+Find a more complete documentation in the releases : https://github.com/stho32/Estimating-Task-Durations/releases/tag/latest
 
 
 
