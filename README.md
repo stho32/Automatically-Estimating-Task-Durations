@@ -20,13 +20,7 @@ Still the business needs to ask. And still it remains a bad idea.
 
 ## The proposed solution
 
-We take the recorded information about the tasks that we already have completed and split the task descriptions and the time alike using different algorithms.
-
-Then we take a new task and split its description as well. Take 100 random numbers per word. Sort the durations per word, take the e.g. 90's value in the array (90% chance) and sum up the result.
-
-So in theory we have a history based guess about how long the task will take. With 90% chance we think this task will take ... Minutes, Hours ... whatever.
-
-This we can use to guess a big bunch of tasks at once. Feedback to the user: really fast. It is a guess, so it is wrong anyway. With more data it will probably become more correct. And it releaves us of the mean duty of guessing ourselfs.
+We automate it.
 
 Look yourself:
 
