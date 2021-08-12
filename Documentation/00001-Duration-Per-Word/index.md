@@ -1,3 +1,6 @@
+
+/newpage{}
+
 # Duration per Word
 
 ## The basic principle
