@@ -1,0 +1,25 @@
+name: PSGallery
+on:
+  release:
+    types: [published]
+jobs:
+  psgallery_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: Set env variable for tag
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Change module version
+        run : | 
+            $content = Get-Content ./Source/EstimatePS/EstimatePS.psd1 -Raw
+            $content = $content.Replace( '$$TAG$$', $Env:RELEASE_VERSION )
+            $content | Set-Content ./Source/EstimatePS/EstimatePS.psd1 
+        shell: pwsh
+
+      - name: Publishing
+        run: |
+          Publish-Module -Path 'Source/EstimatePS/' -NuGetApiKey ${{ secrets.PSGALLERY_SECRET }}
+        shell: pwsh
