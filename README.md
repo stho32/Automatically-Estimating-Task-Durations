@@ -12,9 +12,9 @@ While this is a necessary thing for the business to know about which route to ta
 - we mostly forget about the context and
 - we mostly forget other tasks that we still need to complete
 
-... and many more.
+... and many more errors are made.
 
-And those numbers keep being thrown back at us "why isn't this complete yet" "you said four days, today is the fifth day, why..." and suddenly we are in a psychological trap as well which will haunt us and our colleges in the sleep and make us not wanting to guess anything anymore _ever_.
+And those estimations keep being thrown back at us "why isn't this complete yet" "you said four days, today is the fifth day, why..." and suddenly we are in a psychological trap as well which will haunt us and our colleges in the sleep and make us not wanting to guess anything anymore _ever_.
 
 Still the business needs to ask. And still it remains a bad idea.
 
