@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '$$TAG$$'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -21,16 +21,16 @@ ModuleVersion = '0.0.1'
 GUID = 'e9292caa-02ef-42d1-90e2-dc28ad73ae26'
 
 # Author of this module
-Author = 'shoff'
+Author = 'Stefan Hoffmann'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+CompanyName = ''
 
 # Copyright statement for this module
-Copyright = '(c) shoff. All rights reserved.'
+Copyright = '(c) Stefan Hoffmann. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'EstimatePS allows to estimate durations based on text, e.g. tasks'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
