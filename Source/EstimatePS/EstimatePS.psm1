@@ -1,5 +1,4 @@
 $ErrorActionPreference = "Stop"
-Set-Location $PSScriptRoot
 
 Push-Location $PSScriptRoot
 

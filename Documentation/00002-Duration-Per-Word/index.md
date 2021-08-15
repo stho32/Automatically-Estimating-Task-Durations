@@ -31,6 +31,14 @@ Anyways, we now have a time estimate and noone got hurt.
 
 ## Using the algorithm from powershell
 
-The algorithm is added to EstimatePS. 
+The algorithm is added to EstimatePS, see Source/experiments/duration-per-word/experiment1.ps1 for a complete example with learning, caching and usage.
+
+Finally it is as easy as:
+```
+$inSeconds = Get-DPWEstimate -Model $model -DurationInSecondsFor "add a new bookkeeping api" -ProbabilityInPercent 90
+```
+
+
+
 
 

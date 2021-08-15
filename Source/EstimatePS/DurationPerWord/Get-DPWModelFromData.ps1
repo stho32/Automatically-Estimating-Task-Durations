@@ -1,4 +1,4 @@
-function Get-DPWExtractModelFromData {    
+function Get-DPWModelFromData {    
     <#    
         .SYNOPSIS    
         create simple one word based data that can be used for guessing    
