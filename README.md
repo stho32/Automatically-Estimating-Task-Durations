@@ -26,9 +26,15 @@ Look yourself:
 
 ![experiment.ps1](images/experiment.ps1.png)
 
-## More
+## More, including docs
 
-Find a more complete documentation in the releases : https://github.com/stho32/Estimating-Task-Durations/releases/tag/latest
+Find a more complete documentation in the releases : 
+https://github.com/stho32/Estimating-Task-Durations/releases/tag/latest
+
+You will find there a PDF document containing the documentation to everything, including code references. 
+
+The code is located in this repository in the directory "Source".
+
 
 
 
