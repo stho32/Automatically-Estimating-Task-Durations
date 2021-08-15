@@ -1,5 +1,5 @@
 
-/newpage{}
+\newpage{}
 
 # Duration per Word
 
