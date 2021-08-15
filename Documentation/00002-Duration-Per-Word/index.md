@@ -29,4 +29,8 @@ And it is actually quite reasonable to think that buying a small book is about t
 
 Anyways, we now have a time estimate and noone got hurt.
 
-## 
+## Using the algorithm from powershell
+
+The algorithm is added to EstimatePS. 
+
+
