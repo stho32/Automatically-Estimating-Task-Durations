@@ -5,7 +5,7 @@ function ConvertTo-DPWPreparedModel {
     #>
     Param(
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
-        $RawModel
+        [PSObject[]]$RawModel
     )
 
     Process {
