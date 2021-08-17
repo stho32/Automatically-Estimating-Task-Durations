@@ -9,6 +9,6 @@ function ConvertTo-DPWPreparedModel {
     )
 
     Process {
-        return $RawModel | Group-Object Text
+        return $RawModel | Sort-Object -Property Text | Group-Object -Property Text
     }
 }
