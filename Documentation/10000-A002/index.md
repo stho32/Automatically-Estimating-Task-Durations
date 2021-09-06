@@ -63,12 +63,12 @@ Percent of estimates that are too high: 85,55 %
 Mean squared error: 780.036.288 
 Percent of estimates that are too high: 69,01 %
 
-![QA a002.1 - swe 2020](Documentation/10000-A002/a002_2-swe2020.png)
+![QA a002.2 - swe 2020](Documentation/10000-A002/a002_2-swe2020.png)
 
 **on swe2021 data**
 
 Mean squared error: 323.888.830  
 Percent of estimates that are too high: 69,94 %
 
-![QA a002.1 - swe 2021](Documentation/10000-A002/a002_2-swe2021.png)
+![QA a002.2 - swe 2021](Documentation/10000-A002/a002_2-swe2021.png)
 
