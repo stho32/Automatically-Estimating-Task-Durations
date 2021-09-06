@@ -43,7 +43,7 @@ $inSeconds = Get-DPWEstimate -Model $model -DurationInSecondsFor "add a new book
 As you can see there is a parameter in the algorithm, the "probability in percent" which decides if it should tend to higher values or not. Since it has influence and we want to know what that influence looks like I will use three different values for this validation:
 25%, 50% and 75%. 
 
-![QA a001 - swe 2020](a001_swe2020.png)
+![QA a001 - swe 2020](10000-A001/a001_swe2020.png)
 
 | Probability | Mean squared error | Percent guesses above real duration |
 |-------------|--------------------|-------------------------------------|
@@ -59,7 +59,7 @@ But this is the data we trained the model on, the 2020 tasks below 100000 second
 
 Now let us see how it performs on the 2021 tasks below 100000 seconds:
 
-![QA a001 - swe 2021](./Documentation/10000-A001/a001_swe2021.png)
+![QA a001 - swe 2021](./10000-A001/a001_swe2021.png)
 
 | Probability | Mean squared error | Percent guesses above real duration |
 |-------------|--------------------|-------------------------------------|
