@@ -17,7 +17,7 @@ if (-not(Test-Path $modelFile)) {
     # read prepared data
     $rawdata = Get-Content $inputDataFile | ConvertFrom-json
     # convert it into the way we need it
-    $model = $rawData | Get-DPWModelFromData | ConvertTo-DPWPreparedModel
+    $model = $rawData | Get-DPWModelFromData | Sort-Object -Property Text | Group-Object -Property Text
     # save the model data, so we can be faster the next time
     $model | ConvertTo-Json -Depth 100 | Out-File $modelFile -Force
 } else {
