@@ -42,7 +42,7 @@ $inSeconds = Get-DPWEstimate -Model $model -DurationInSecondsFor "add a new book
 
 The mean squared error according to our quality assurance script is : 1319621858.64
 
-![QA Duration per word - swe 2020][00003-Quality-Assurance/durations-per-word_swe2020.png]
+![QA Duration per word - swe 2020](00003-Quality-Assurance/durations-per-word_swe2020.png)
 
 
 
