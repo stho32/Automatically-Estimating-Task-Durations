@@ -3,7 +3,7 @@
 
 # A001 - Duration per Word
 
-## The basic principle
+## Description 
 
 Let us dive in with a very very simple algorithm. In fact it is the first algorithm I tought of. 
 
