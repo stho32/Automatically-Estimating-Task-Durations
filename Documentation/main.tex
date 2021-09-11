@@ -1,0 +1,229 @@
+%Vorlage
+\documentclass[12pt,a4paper]{article}
+\usepackage[german]{babel} %Für die indirekte Angabe von Umlauten. Es müssen dann Umlaute wie folgt im Code angegeben werden: "a "o "u "s.
+
+\usepackage[utf8]{inputenc}
+%dieses Paket ermöglicht uns, Umlaute im Text als solche eingeben zu können (Windows/Linux)
+
+%\usepackage[applemac]{inputenc}
+%Mac-Nutzer, die Ihre Latex-Dateien lokal kompilieren wollen, müssen dieses Paket aktivieren, um Umlaute im Code direkt angeben zu können.
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{wrapfig}
+\usepackage{hyperref}% für die Einbettung von Hyperlinks
+\usepackage{multirow}
+\usepackage[round]{natbib}
+\bibliographystyle{apalike}
+
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{interview}{Interview}[section]
+\newtheorem{satz}{Satz}[section]
+\newtheorem{beispiel}{Beispiel}[section]
+\newtheorem{bemerkung}{Bemerkung}[section]
+\newtheorem{literaturverzeichnis}{Literaturverzeichnis}[section]
+
+\usepackage[top=25mm, bottom=20mm, vmargin=25mm, includehead]{geometry} % Document Margins
+\setlength{\topmargin}{0cm}
+\setlength{\parindent}{5mm}
+\setlength{\parskip}{2mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{0cm}
+%\pagestyle{headings}
+
+
+
+\begin{document}
+\thispagestyle{empty}
+\vspace*{-3cm}
+\begin{center}
+\large \textsc{Frankfurt School of Finance \& Management}
+\vspace{0.5cm}
+\hrule
+\vspace{5.5cm}
+{\Large \textsc{Seminararbeit\\
+([Modulname])}}\\
+{\large WS 2020/21}\\
+\vspace{1cm}
+{\Large \bf
+[Thema]}\\
+\vspace*{1cm}
+{\large Referent:  [[Prof.] Dr. NAME DOZENT/IN]}
+\end{center}
+\vspace*{5cm}
+{\large
+
+\hspace*{7cm}
+\parbox{8.2cm}
+{
+\begin{tabular}{ll}
+Vorgelegt von & [Vorname Name]\\
+
+ & [Straße] [Hausnr.]\\
+ & [PLZ] [Ort]\bigskip\\
+ & [Martrikelnummer]\bigskip\\
+ & [Studienort und Gruppe]\bigskip\\
+Abgabetermin: & TT.MM.JJJJ
+
+\end{tabular}}}
+
+\newpage
+\pagenumbering{Roman}
+\tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Tabellenverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+\listoftables
+
+\newpage
+\addcontentsline{toc}{section}{Abbildungsverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+\listoffigures
+
+\newpage
+\pagenumbering{arabic}
+%Und nun kommen wir zur Arbeit und fangen an die Seiten mit Arabischen Zahlen zu zählen
+\section{Einleitung}\label{intro}
+Diese Vorlage dient der Erklärung und hat keinen wissenschaftlichen Wert.
+%Die Definition des Labels ist sehr hilfreich, wenn man in den weiteren Abschnitten auf die Einleitung hinweisen möchte. So reicht es dann \ref{intro} im Code zu tippen
+%\markboth{Einleitung}{Einleitung}%Nur bei beidseitiger Aufstellug sinnvoll
+\markright{Einleitung}
+%Definiert den Seitenkopf bei einseitigen Dokumenten. Bei einseitigen Dokumenten gilt jede Seite als rechte Seite". Der Befehl hat nur dann eine Wirkung, wenn der gerade gültige Seitenstil einen Seitenkopf zuläßt.
+%{\setlength{\parindent}{1cm}
+%Legt die Einrücktiefe der ersten Zeile für alle folgenden Absätze fest.
+
+\newpage
+\section{Hauptteil}\label{body}
+\markright{Hauptteil}
+mmmmm ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+
+\subsection{Richtig Zitieren}
+Richtig und einfach zitieren in \LaTeX\ setzt eine gut eingepflegte  .bib-Datei voraus.
+\subsubsection {Literaturbibliothek: .bib-Datei }
+In \LaTeX\ wird der Literaturnachweis mithilfe einer Literaturbibliothek gelöst. Man erstellt hierzu eine \textbf{\emph{.bib-Datei}}, die f"ur die einzelnen Werke die bibliografischen Daten (Autor, Titel, Erscheinungsjahr, Verlag, etc.) enthält. Jedes Werk bekommt dann eine eindeutige Bezeichnung. Bei einem Zitat wird dann die entsprechende Bezeichnung mittels eines \textbf{\emph{cite-Befehls}} angegeben. Um das Literaturverzeichnis anzeigen zu lassen, fügt man an der gewünschten Stelle im Dokument den \textbf{\emph{tableofcontects-Befehl}} ein.
+
+\subsection{Auflistungen in \LaTeX}
+Für Auflistungen in \LaTeX\ verwendet man verschidene Umgebungen. Mit den folgenden Umgebungen kann man Auflistungen mit bis zu vier Ebenen leicht erstellen.
+\subsubsection{Stichpunkte mit \textbf{\emph{itemize}}}
+{\setstretch{1.0}
+
+
+\begin{itemize}%Die itemize Umgebung ermöglicht die unnummerierte Auflistung in Latex.
+\item Stichpunkt X
+\item Stichpunkt Y
+\end{itemize}
+\subsubsection{Nummerierte Auflistung mit \textbf{\emph{enumerate}}}
+\begin{enumerate}
+    \item Zeilenabstände
+    \item können
+    \begin{enumerate}
+        \item temporär
+        \begin{enumerate}
+            \item reduziert
+            \begin{enumerate}
+                \item werden.
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+}
+\newpage % 
+
+\subsection{Darstellung Mathematischer Ausdrücke}\label{math}
+\markboth{Die Funktion}{Die Funktion}
+\begin{equation}\label{AuszahlungCall}
+Call_e[S,K,T,T]=\left[S(T)-K\right]^+
+\end{equation}
+Die Gleichung \eqref{AuszahlungCall} bezeichnet die Auszahlung der Call Option zum Zeitpunkt $T$.
+\begin{eqnarray*}
+Call_e[S,K,t,T]&=&S(t)\cdot N(d_1)-K\cdot e^{-(T-r)r}\cdot N(d_2),\\
+d_{1/2}&=&\frac{\ln\left(\frac{S_t}{K\cdot e^{-(T-t)r}}\right)\pm\frac{1}{2}\sigma^2(T-t)}{\sigma\sqrt{T-t}}
+\end{eqnarray*}
+\begin{align}
+\frac{\partial Call_e[S,K,t,T]}{\partial S}par&=N(d_1)+S\cdot\frac{\partial N(d_1)}{\partial S}-K\cdot e^{-r\cdot(T-t)}\cdot\frac{\partial N(d_2)}{\partial S}&t<T\\
+\frac{\partial Call_e[S,K,t,T]}{\partial S}&=N(d_1)&t<T
+\end{align}
+$$Call_e[S_t,K,t,T]=S_t\cdot \underbrace{N(d_1)}_{\text{Hedgeratio}}-\underbrace{K\cdot e^{-r(T-t)}\cdot N(d_2)}_{Kassa-Hedge}$$
+
+Hedge-Ratio: $\frac{\partial \text{Put}}{\partial S}=-N(-d_1)\leq 0$
+
+\subsection{Tabellarische Darstellung}\label{numeric}
+\markboth{Tabellarische Darstellung}{Tabellarische Darstellung}
+
+Die Beispielstabelle \ref{Tbsp} dient der Darstellung der \textbf{\emph{table-Umgebung}} in \LaTeX.\\
+Ausführliche Erklärungen und Beispiele finden Sie unter folgendem Link:\\
+\href{https://www.overleaf.com/learn/latex/tables}{\textbf{\emph {Overleaf Guide to Tables.}}}
+\begin{table}[h!]
+\centering
+\begin{tabular}{||c c c c||} 
+ \hline
+ Col1 & Col2 & Col2 & Col3 \\ [0.5ex] 
+ \hline\hline
+ 1 & 6 & 87837 & 787 \\ 
+ 2 & 7 & 78 & 5415 \\
+ 3 & 545 & 778 & 7507 \\
+ 4 & 545 & 18744 & 7560 \\
+ 5 & 88 & 788 & 6344 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Beispieltabelle}
+\label{Tbsp}
+\end{table}
+\newpage
+\subsection{Bilder und Diagramme}
+\markboth{bilder}{Bilder}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{FS-Vorlage/Images/FS-Building.jpg}
+\caption{FS-Campus} \centering\cite{fs}
+\end{figure}
+in \LaTeX\ kann man mithilfe des {\textbf{\emph {graphix-Pakets}}} Bilder und Diagramme jedem Dokument hinzufügen. Eine ausführliche Erklärung und Beispiele finden Sie unter folgendem Link:\\
+\href{https://de.overleaf.com/learn/latex/Inserting_Images}{\textbf{\emph{Overleaf Guide to Inserting Images}}}
+
+\subsection{Hyperlinks}
+\markboth{Hyperlinks}{Hyperlinks}
+\LaTeX\ ermöglicht uns, im Text mithilfe des \textbf{\emph{href-Befehls}}  Hyperlinks einzubetten:\newline
+\href{https://www.overleaf.com/learn/latex/Hyperlinks}{\textbf{\emph{Overleaf Guide to Hyperlinks}}}.\newline
+Alternativ kann man den {\textbf{\emph{url-Befehel}}} einsetzen: \url{https://www.frankfurt-school.de}
+
+\begin{appendix}
+\section{Herleitung}
+\markboth{Appendix}{Appendix}
+Siehe \citet{sandmann}.
+
+\end{appendix}
+
+
+
+
+\newpage
+\markboth{}{}
+%\begin{thebibliography}{99}
+%\bibitem{sandmann} Sandmann, K.; (2010): {\it Einführung in die Stochastik der Finanzmärkte}. Springer-Verlag, Berlin.
+%\end{thebibliography}
+
+\newpage
+\addcontentsline{toc}{section}{Literaturverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+\renewcommand{\refname}{Literaturverzeichnis}
+\bibliography{FS-Literature}
+
+\newpage
+\thispagestyle{empty}
+\markboth{}{}
+  \normalsize
+\begin{center}
+\huge{\bf Eigenständigkeitserklärung}\\[40mm]
+\end{center}
+\large
+Ich versichere, dass die vorstehende Arbeit von mir selbstst"andig ohne unerlaubte fremde Hilfe und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt wurde, und dass ich alle Stellen, die w"ortlich oder sinngem"a"s aus ver"offentlichten oder unver"offentlichten Schriften entnommen sind, als solche gekennzeichnet habe.\\[50mm]
+Frankfurt, den \today
+
+\newpage
+
+
+
+\end{document}
+
