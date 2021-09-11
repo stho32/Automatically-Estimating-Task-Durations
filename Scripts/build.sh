@@ -8,3 +8,12 @@
 # So if you are just looking to create the pdf or change some text you can do that
 # without executing this.
 
+# create a new fresh folder for the results
+rm -rf output/
+mkdir output
+
+# execute measurements
+./A001-execute.ps1
+
+
+# analyse and build review + graphs
