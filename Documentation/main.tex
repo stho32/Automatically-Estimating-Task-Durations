@@ -31,6 +31,8 @@
 \setlength{\oddsidemargin}{0cm}
 %\pagestyle{headings}
 
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \begin{document}
 \thispagestyle{empty}
@@ -40,8 +42,6 @@
 \vspace{0.5cm}
 %\hrule
 \vspace{5.5cm}
-{\Large \textsc{\\
-}}\\
 {\large}\\
 \vspace{1cm}
 {\Large \bf
@@ -151,11 +151,11 @@ Ausführliche Erklärungen und Beispiele finden Sie unter folgendem Link:\\
 \end{table}
 \newpage
 \subsection{Bilder und Diagramme}
-\markboth{bilder}{Bilder}
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{FS-Vorlage/Images/FS-Building.jpg}
-\caption{FS-Campus} \centering\cite{fs}
-\end{figure}
+%\markboth{bilder}{Bilder}
+%\begin{figure}[h]
+%\includegraphics[width=\textwidth]{FS-Vorlage/Images/FS-Building.jpg}
+%\caption{FS-Campus} \centering\cite{fs}
+%\end{figure}
 in \LaTeX\ kann man mithilfe des {\textbf{\emph {graphix-Pakets}}} Bilder und Diagramme jedem Dokument hinzufügen. Eine ausführliche Erklärung und Beispiele finden Sie unter folgendem Link:\\
 \href{https://de.overleaf.com/learn/latex/Inserting_Images}{\textbf{\emph{Overleaf Guide to Inserting Images}}}
 
@@ -168,7 +168,7 @@ Alternativ kann man den {\textbf{\emph{url-Befehel}}} einsetzen: \url{https://ww
 \begin{appendix}
 \section{Herleitung}
 \markboth{Appendix}{Appendix}
-Siehe \citet{sandmann}.
+%Siehe \citet{sandmann}.
 
 \end{appendix}
 
