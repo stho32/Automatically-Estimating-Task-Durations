@@ -4,7 +4,7 @@
 \section{A001 - Duration per Word}\label{a001---duration-per-word}}
 
 \hypertarget{description}{%
-\subsection{Description}\label{description}}
+\subsection{Description}}
 
 Let us dive in with a very very simple algorithm. In fact it is the
 first algorithm I tought of.
@@ -42,8 +42,7 @@ about the effort of buying a big one. But that is just the example.
 Anyways, we now have a time estimate and noone got hurt.
 
 \hypertarget{using-the-algorithm-from-powershell}{%
-\subsection{Using the algorithm from
-powershell}\label{using-the-algorithm-from-powershell}}
+\subsection{Using the algorithm from powershell}}
 
 The algorithm is added to EstimatePS, see
 Source/experiments/duration-per-word/experiment1.ps1 for a complete
@@ -56,7 +55,7 @@ $inSeconds = Get-DPWEstimate -Model $model -DurationInSecondsFor "add a new book
 \end{verbatim}
 
 \hypertarget{how-good-is-it}{%
-\subsection{How good is it?}\label{how-good-is-it}}
+\subsection{How good is it?}}
 
 As you can see there is a parameter in the algorithm, the ``probability
 in percent'' which decides if it should tend to higher values or not.
@@ -66,20 +65,17 @@ and 75\%.
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A001/a001-swe2020.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A001/a001-swe2020.png}
 \caption{QA a001 - swe 2020}
 \end{figure}
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule
 Probability & Mean squared error & Percent guesses above real
 duration\tabularnewline
-\midrule
 \endhead
 25\% & 46.205.433 & 20,96\%\tabularnewline
 50\% & 35.826.104 & 51,33\%\tabularnewline
 75\% & 28.595.545 & 76,75\%\tabularnewline
-\bottomrule
 \end{longtable}
 
 Our target mean squared error is 324.000.000 One hour is about 12.9 mio
@@ -93,20 +89,17 @@ Now let us see how it performs on the 2021 tasks below 100000 seconds:
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A001/a001-swe2021.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A001/a001-swe2021.png}
 \caption{QA a001 - swe 2021}
 \end{figure}
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule
 Probability & Mean squared error & Percent guesses above real
 duration\tabularnewline
-\midrule
 \endhead
 25\% & 88.106.182 & 25,96\%\tabularnewline
 50\% & 84.227.983 & 45,52\%\tabularnewline
 75\% & 80.881.803 & 70,20\%\tabularnewline
-\bottomrule
 \end{longtable}
 
 We are still below our 5h target which makes the algorithm still

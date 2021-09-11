@@ -5,7 +5,7 @@
 \section{A002 - Simply an average}\label{a002---simply-an-average}}
 
 \hypertarget{description}{%
-\subsection{Description}\label{description}}
+\subsection{Description}}
 
 Another algorithm could just calculate an average. Take all tasks and
 their durations, divide them by their count. Is this better?
@@ -26,11 +26,10 @@ calculate one:
 \end{itemize}
 
 \hypertarget{using-the-algorithm-from-powershell}{%
-\subsection{Using the algorithm from
-powershell}\label{using-the-algorithm-from-powershell}}
+\subsection{Using the algorithm from powershell}}
 
 \hypertarget{a002.1}{%
-\subsubsection{A002.1}\label{a002.1}}
+\subsubsection{A002.1}}
 
 Have a look at Quality-Assurance\_A002\_1\_swe2020.ps1 if you need more.
 But actually it is just calculating the average. It is not even
@@ -43,7 +42,7 @@ $anyEstimation = $averageTaskDuration
 \end{verbatim}
 
 \hypertarget{a002.2}{%
-\subsubsection{A002.2}\label{a002.2}}
+\subsubsection{A002.2}}
 
 For that average let us only use the middle 90\% of duration values.
 That will cut extreme points and should reduce the error.
@@ -58,10 +57,10 @@ $historicData = $historicData[$fivePercent..($count-$fivePercent)]
 \end{verbatim}
 
 \hypertarget{how-good-is-it}{%
-\subsection{How good is it?}\label{how-good-is-it}}
+\subsection{How good is it?}}
 
 \hypertarget{a002.1-1}{%
-\subsubsection{A002.1}\label{a002.1-1}}
+\subsubsection{A002.1}}
 
 \textbf{on swe2020 data}
 
@@ -70,7 +69,7 @@ Mean squared error: 765.929.757 Percent of estimates that are too high:
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A002/a002_1-swe2020.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A002/a002_1-swe2020.png}
 \caption{QA a002.1 - swe 2020}
 \end{figure}
 
@@ -81,7 +80,7 @@ Mean squared error: 321.140.140 Percent of estimates that are too high:
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A002/a002_1-swe2021.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A002/a002_1-swe2021.png}
 \caption{QA a002.1 - swe 2021}
 \end{figure}
 
@@ -95,7 +94,7 @@ Mean squared error: 780.036.288 Percent of estimates that are too high:
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A002/a002_2-swe2020.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A002/a002_2-swe2020.png}
 \caption{QA a002.2 - swe 2020}
 \end{figure}
 
@@ -106,6 +105,6 @@ Percent of estimates that are too high: 69,94 \%
 
 \begin{figure}
 \centering
-\includegraphics{Documentation/10000-A002/a002_2-swe2021.png}
+\includegraphics[width=\textwidth]{Documentation/10000-A002/a002_2-swe2021.png}
 \caption{QA a002.2 - swe 2021}
 \end{figure}
