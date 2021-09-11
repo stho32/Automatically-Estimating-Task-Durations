@@ -17,13 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: create file list 
-        id : files_list
-        run: echo "::set-output name=files::$(pwsh ./create-filelist-for-github-action.ps1)"
-
-      - uses: docker://pandoc/latex:2.9
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-            args:  --output=output/estimating-task-durations.pdf ${{ steps.files_list.outputs.files }} --toc -V linkcolor:blue -V geometry:a4paper -V geometry:margin=2cm -V fontsize=12pt --pdf-engine=xelatex --template=Documentation/_tools/template.tex
+          root_file: Documentation/main.tex
+          
+      - run: |
+          mv Documentation/main.pdf output/estimating-task-durations.pdf
+      
       - uses: actions/upload-artifact@master
         with:
             name: pdf
