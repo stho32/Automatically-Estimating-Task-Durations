@@ -1,12 +1,8 @@
-%Vorlage
 \documentclass[12pt,a4paper]{article}
-\usepackage[german]{babel} %Für die indirekte Angabe von Umlauten. Es müssen dann Umlaute wie folgt im Code angegeben werden: "a "o "u "s.
+%\usepackage[german]{babel} %Für die indirekte Angabe von Umlauten. Es müssen dann Umlaute wie folgt im Code angegeben werden: "a "o "u "s.
 
 \usepackage[utf8]{inputenc}
 %dieses Paket ermöglicht uns, Umlaute im Text als solche eingeben zu können (Windows/Linux)
-
-%\usepackage[applemac]{inputenc}
-%Mac-Nutzer, die Ihre Latex-Dateien lokal kompilieren wollen, müssen dieses Paket aktivieren, um Umlaute im Code direkt angeben zu können.
 
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{enumerate}
@@ -19,7 +15,6 @@
 \usepackage{multirow}
 \usepackage[round]{natbib}
 \bibliographystyle{apalike}
-
 
 \newtheorem{definition}{Definition}[section]
 \newtheorem{interview}{Interview}[section]
@@ -37,64 +32,45 @@
 %\pagestyle{headings}
 
 
-
 \begin{document}
 \thispagestyle{empty}
 \vspace*{-3cm}
 \begin{center}
-\large \textsc{Frankfurt School of Finance \& Management}
+\large \textsc{}
 \vspace{0.5cm}
-\hrule
+%\hrule
 \vspace{5.5cm}
-{\Large \textsc{Seminararbeit\\
-([Modulname])}}\\
-{\large WS 2020/21}\\
+{\Large \textsc{\\
+}}\\
+{\large}\\
 \vspace{1cm}
 {\Large \bf
-[Thema]}\\
+Automatically Estimating Task Durations}\\
 \vspace*{1cm}
-{\large Referent:  [[Prof.] Dr. NAME DOZENT/IN]}
+{\large using arithmetic and artificial intelligence}
 \end{center}
-\vspace*{5cm}
-{\large
+\vspace*{14cm}
 
-\hspace*{7cm}
-\parbox{8.2cm}
-{
-\begin{tabular}{ll}
-Vorgelegt von & [Vorname Name]\\
 
- & [Straße] [Hausnr.]\\
- & [PLZ] [Ort]\bigskip\\
- & [Martrikelnummer]\bigskip\\
- & [Studienort und Gruppe]\bigskip\\
-Abgabetermin: & TT.MM.JJJJ
-
-\end{tabular}}}
+\hspace*{\fill} from Stefan Hoffmann and others, \today
 
 \newpage
 \pagenumbering{Roman}
 \tableofcontents
 
-\newpage
-\addcontentsline{toc}{section}{Tabellenverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
-\listoftables
+%\newpage
+%\addcontentsline{toc}{section}{tables} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+%\listoftables
 
-\newpage
-\addcontentsline{toc}{section}{Abbildungsverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
-\listoffigures
+%\newpage
+%\addcontentsline{toc}{section}{Abbildungsverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+%\listoffigures
 
 \newpage
 \pagenumbering{arabic}
 %Und nun kommen wir zur Arbeit und fangen an die Seiten mit Arabischen Zahlen zu zählen
-\section{Einleitung}\label{intro}
-Diese Vorlage dient der Erklärung und hat keinen wissenschaftlichen Wert.
-%Die Definition des Labels ist sehr hilfreich, wenn man in den weiteren Abschnitten auf die Einleitung hinweisen möchte. So reicht es dann \ref{intro} im Code zu tippen
-%\markboth{Einleitung}{Einleitung}%Nur bei beidseitiger Aufstellug sinnvoll
-\markright{Einleitung}
-%Definiert den Seitenkopf bei einseitigen Dokumenten. Bei einseitigen Dokumenten gilt jede Seite als rechte Seite". Der Befehl hat nur dann eine Wirkung, wenn der gerade gültige Seitenstil einen Seitenkopf zuläßt.
-%{\setlength{\parindent}{1cm}
-%Legt die Einrücktiefe der ersten Zeile für alle folgenden Absätze fest.
+\input{Documentation/00000-Introduction/index}
+\input{Documentation/00001-Accompagning-Material/index}
 
 \newpage
 \section{Hauptteil}\label{body}
