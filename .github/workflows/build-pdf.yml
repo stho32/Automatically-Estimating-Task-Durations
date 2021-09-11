@@ -23,7 +23,7 @@ jobs:
           root_file: Documentation/main.tex
           
       - run: |
-          mv Documentation/main.pdf output/estimating-task-durations.pdf
+          mv ./main.pdf ./output/estimating-task-durations.pdf
       
       - uses: actions/upload-artifact@master
         with:
