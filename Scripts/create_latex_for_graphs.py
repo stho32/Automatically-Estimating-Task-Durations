@@ -15,7 +15,7 @@ result = ""
 
 for f in files:
     f = f.replace("./output", "Scripts/output")
-    result += "%\\includegraphics[width=\\textwidth]{" + f + "}\n"
+    result += "\\includegraphics[width=\\textwidth]{" + f + "}\n"
 
 with open("./output/summary-graphs.tex", "w") as summaryfile:
     summaryfile.write(result)
