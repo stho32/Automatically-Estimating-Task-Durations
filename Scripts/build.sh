@@ -9,11 +9,16 @@
 # without executing this.
 
 # create a new fresh folder for the results
-rm -rf output/
-mkdir output
+#rm -rf output/
+#mkdir output
 
 # execute measurements
-./A001-execute.ps1
+#pwsh A001-execute.ps1
 
 
 # analyse and build review + graphs
+python3 ./A001-analyse.py
+
+# create summaries
+python3 ./create_summary.py
+python3 ./create_latex_for_graphs.py
