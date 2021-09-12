@@ -14,10 +14,10 @@
 
 # execute measurements
 #pwsh A001-execute.ps1
-
+bash ./A002-execute.sh
 
 # analyse and build review + graphs
-python3 ./A001-analyse.py
+python3 ./analyse.py
 
 # create summaries
 python3 ./create_summary.py

@@ -24,3 +24,7 @@ analyse('A001', 'SWEArchiv2020', 'SWEArchiv2021', '75%P', './output/A001_swearch
 analyse('A001', 'SWEArchiv2020', 'SWEArchiv2021', '80%P', './output/A001_swearchiv2020_swearchiv2021_080.csv')
 analyse('A001', 'SWEArchiv2020', 'SWEArchiv2021', '90%P', './output/A001_swearchiv2020_swearchiv2021_090.csv')
 analyse('A001', 'SWEArchiv2020', 'SWEArchiv2021', '100%P', './output/A001_swearchiv2020_swearchiv2021_100.csv')
+
+analyse('A002_1', 'SWEArchiv2020', 'SWEArchiv2020', '', './output/A002_1_swearchiv2020_swearchiv2020.csv')
+analyse('A002_1', 'SWEArchiv2020', 'SWEArchiv2021', '', './output/A002_1_swearchiv2020_swearchiv2021.csv')
+
