@@ -11,9 +11,7 @@ def load_json_data(filename):
 files = glob.glob("./output/*.json") 
 files = sorted(files)
 
-resulttable = [
-        ["Algorithm", "Training on", "Estimating", "with params", "deviation"]
-    ]
+resulttable = []
 
 for f in files:
     filecontent = load_json_data(f)
@@ -21,7 +19,7 @@ for f in files:
         filecontent["algorithm"],
         filecontent["trainingOn"],
         filecontent["estimating"],
-        filecontent["parameters"],
+        filecontent["parameters"].replace("%", "\\%"),
         "{:.3f}".format(filecontent["mean"]) + ' $\pm$ ' + "{:.3f}".format(filecontent["standard_deviation"]) + ' hours'
         ])
 
