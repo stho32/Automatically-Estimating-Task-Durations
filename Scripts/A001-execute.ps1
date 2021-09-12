@@ -36,18 +36,18 @@ function ProcessData($data, $probability, $outputfilepath) {
     $result | Export-Csv -Path "output/$outputfilepath" -NoTypeInformation
 }
 
-#ProcessData $swearchiv2020 25 "A001_swearchiv2020_swearchiv2020_25.csv"
-#ProcessData $swearchiv2020 50 "A001_swearchiv2020_swearchiv2020_50.csv"
-#ProcessData $swearchiv2020 75 "A001_swearchiv2020_swearchiv2020_75.csv"
-#ProcessData $swearchiv2020 80 "A001_swearchiv2020_swearchiv2020_80.csv"
-#ProcessData $swearchiv2020 90 "A001_swearchiv2020_swearchiv2020_90.csv"
-#ProcessData $swearchiv2020 100 "A001_swearchiv2020_swearchiv2020_100.csv"
+ProcessData $swearchiv2020 25 "A001_swearchiv2020_swearchiv2020_025.csv"
+ProcessData $swearchiv2020 50 "A001_swearchiv2020_swearchiv2020_050.csv"
+ProcessData $swearchiv2020 75 "A001_swearchiv2020_swearchiv2020_075.csv"
+ProcessData $swearchiv2020 80 "A001_swearchiv2020_swearchiv2020_080.csv"
+ProcessData $swearchiv2020 90 "A001_swearchiv2020_swearchiv2020_090.csv"
+ProcessData $swearchiv2020 100 "A001_swearchiv2020_swearchiv2020_100.csv"
 
-ProcessData $swearchiv2021 25 "A001_swearchiv2020_swearchiv2021_25.csv"
-ProcessData $swearchiv2021 50 "A001_swearchiv2020_swearchiv2021_50.csv"
-ProcessData $swearchiv2021 75 "A001_swearchiv2020_swearchiv2021_75.csv"
-ProcessData $swearchiv2021 80 "A001_swearchiv2020_swearchiv2021_80.csv"
-ProcessData $swearchiv2021 90 "A001_swearchiv2020_swearchiv2021_90.csv"
+ProcessData $swearchiv2021 25 "A001_swearchiv2020_swearchiv2021_025.csv"
+ProcessData $swearchiv2021 50 "A001_swearchiv2020_swearchiv2021_050.csv"
+ProcessData $swearchiv2021 75 "A001_swearchiv2020_swearchiv2021_075.csv"
+ProcessData $swearchiv2021 80 "A001_swearchiv2020_swearchiv2021_080.csv"
+ProcessData $swearchiv2021 90 "A001_swearchiv2020_swearchiv2021_090.csv"
 ProcessData $swearchiv2021 100 "A001_swearchiv2020_swearchiv2021_100.csv"
 
 
