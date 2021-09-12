@@ -10,8 +10,8 @@ def create_image_boxplot(filename, df):
 
     fig = go.Figure()
 
-    fig.add_box(y=boxdf["HoursSpent"], name="HoursSpent")
-    fig.add_box(y=boxdf["HoursEstimated"], name="HoursEstimated")
+    fig.add_box(y=boxdf["HoursSpent"], name="HoursSpent (INPUT)")
+    fig.add_box(y=boxdf["HoursEstimated"], name="HoursEstimated (OUTPUT)")
 
     fig.update_layout(
         title = filename,
@@ -53,13 +53,17 @@ def create_image_scatterHours(filename, df):
     fig.write_image(filename + ".png", width=1200, height=700, scale=1)
     #fig.show()
 
-def create_statistics(filename, df):
+def create_statistics(algorithm, trainingOn, estimating, parameters, filename, df):
     mean = df["HoursDifference"].mean()
     standard_deviation = df["HoursDifference"].std()
 
     data = dict(
-            mean=mean,
-            standard_deviation=standard_deviation
+            algorithm          = algorithm,
+            trainingOn         = trainingOn,
+            estimating         = estimating,
+            parameters         = parameters,
+            mean               = mean,
+            standard_deviation = standard_deviation
         )
 
     with open(filename + ".json", 'w') as outfile:
