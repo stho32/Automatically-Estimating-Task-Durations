@@ -12,7 +12,7 @@ files = glob.glob("./output/*.json")
 files = sorted(files)
 
 resulttable = [
-        ["Algorithm", "Training on", "Estimating", "with params", "deviates by"]
+        ["Algorithm", "Training on", "Estimating", "with params", "deviation"]
     ]
 
 for f in files:
@@ -22,8 +22,13 @@ for f in files:
         filecontent["trainingOn"],
         filecontent["estimating"],
         filecontent["parameters"],
-        "{:.3f}".format(filecontent["mean"]) + ' +/- ' + "{:.3f}".format(filecontent["standard_deviation"]) + ' hours'
+        "{:.3f}".format(filecontent["mean"]) + ' $\pm$ ' + "{:.3f}".format(filecontent["standard_deviation"]) + ' hours'
         ])
 
 with open("./output/summary-table.tex", "w") as summaryfile:
-    summaryfile.write(tabulate.tabulate(resulttable, tablefmt="latex"))
+    summaryfile.write(tabulate.tabulate(
+        resulttable, 
+        headers = ["Algorithm", "Training on", "Estimating", "with params", "deviation"],
+        tablefmt="latex_raw",
+        colalign=("left", "left", "left", "right", "right")
+        ))
