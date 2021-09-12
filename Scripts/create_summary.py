@@ -16,7 +16,7 @@ resulttable = []
 for f in files:
     filecontent = load_json_data(f)
     resulttable.append([
-        filecontent["algorithm"],
+        filecontent["algorithm"].replace("_", "\\_"),
         filecontent["trainingOn"],
         filecontent["estimating"],
         filecontent["parameters"].replace("%", "\\%"),
