@@ -14,6 +14,7 @@ files = sorted(files)
 resulttable = []
 
 for f in files:
+    print(f)
     filecontent = load_json_data(f)
     resulttable.append([
         filecontent["algorithm"].replace("_", "\\_"),

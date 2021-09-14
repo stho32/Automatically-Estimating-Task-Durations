@@ -9,11 +9,11 @@
 # without executing this.
 
 # create a new fresh folder for the results
-#rm -rf output/
-#mkdir output
+rm -rf output/
+mkdir output
 
 # execute measurements
-#pwsh A001-execute.ps1
+pwsh A001-execute.ps1
 bash ./A002-execute.sh
 
 # analyse and build review + graphs
