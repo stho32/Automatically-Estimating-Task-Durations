@@ -29,13 +29,13 @@ analyse('A002_1', 'SWEArchiv2020', 'SWEArchiv2020', '', './output/A002_1_swearch
 analyse('A002_1', 'SWEArchiv2020', 'SWEArchiv2021', '', './output/A002_1_swearchiv2020_swearchiv2021.csv')
 
 analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L95%M', './output/A002_2_swearchiv2020_swearchiv2020_095.csv')
-analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L95%M', './output/A002_2_swearchiv2020_swearchiv2020_095.csv')
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L95%M', './output/A002_2_swearchiv2020_swearchiv2021_095.csv')
 
 analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L85%M', './output/A002_2_swearchiv2020_swearchiv2020_085.csv')
-analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L85%M', './output/A002_2_swearchiv2020_swearchiv2020_085.csv')
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L85%M', './output/A002_2_swearchiv2020_swearchiv2021_085.csv')
 
 analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L75%M', './output/A002_2_swearchiv2020_swearchiv2020_075.csv')
-analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L75%M', './output/A002_2_swearchiv2020_swearchiv2020_075.csv')
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L75%M', './output/A002_2_swearchiv2020_swearchiv2021_075.csv')
 
 
 

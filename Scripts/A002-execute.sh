@@ -22,14 +22,14 @@ python3 ../Source/a002_2/a002_2.py --learn --input ../../Automatically-Estimatin
 
 python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2020.csv --output ./output/A002_2_swearchiv2020_swearchiv2020_095.csv --model ./a002_2_model_095.json
 
-python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_1_swearchiv2020_swearchiv2021_095.csv --model ./a002_2_model_095.json
+python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_2_swearchiv2020_swearchiv2021_095.csv --model ./a002_2_model_095.json
 
 
 python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2020.csv --output ./output/A002_2_swearchiv2020_swearchiv2020_085.csv --model ./a002_2_model_085.json
 
-python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_1_swearchiv2020_swearchiv2021_085.csv --model ./a002_2_model_085.json
+python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_2_swearchiv2020_swearchiv2021_085.csv --model ./a002_2_model_085.json
 
 
 python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2020.csv --output ./output/A002_2_swearchiv2020_swearchiv2020_075.csv --model ./a002_2_model_075.json
 
-python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_1_swearchiv2020_swearchiv2021_075.csv --model ./a002_2_model_075.json
+python3 ../Source/a002_2/a002_2.py --validation --input ../../Automatically-Estimating-Task-Durations-Private/SWE-Archiv-2021.csv --output ./output/A002_2_swearchiv2020_swearchiv2021_075.csv --model ./a002_2_model_075.json

@@ -1,1 +1,1 @@
-{"algorithm": "A001", "trainingOn": "SWEArchiv2020", "estimating": "SWEArchiv2020", "parameters": "50%P", "mean": -0.8999423212553812, "standard_deviation": 6.368915546689759}
+{"algorithm": "A001", "trainingOn": "SWEArchiv2020", "estimating": "SWEArchiv2020", "parameters": "50%P", "mean": -0.8999423212553812, "standard_deviation": 6.368915546689759, "mse": 41.33333031273567}

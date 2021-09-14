@@ -3,6 +3,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import json
 import numpy as np
+from sklearn.metrics import mean_squared_error
 
 def create_image_boxplot(filename, df):
     boxdf = df.copy()
@@ -56,6 +57,7 @@ def create_image_scatterHours(filename, df):
 def create_statistics(algorithm, trainingOn, estimating, parameters, filename, df):
     mean = df["HoursDifference"].mean()
     standard_deviation = df["HoursDifference"].std()
+    mse = mean_squared_error(df["HoursSpent"], df["HoursEstimated"])
 
     data = dict(
             algorithm          = algorithm,
@@ -63,7 +65,8 @@ def create_statistics(algorithm, trainingOn, estimating, parameters, filename, d
             estimating         = estimating,
             parameters         = parameters,
             mean               = mean,
-            standard_deviation = standard_deviation
+            standard_deviation = standard_deviation,
+            mse                = mse
         )
 
     with open(filename + ".json", 'w') as outfile:
@@ -71,4 +74,5 @@ def create_statistics(algorithm, trainingOn, estimating, parameters, filename, d
 
     print("    mean:", mean)
     print("    std:", standard_deviation)
+    print("    mse:", mse)
 
