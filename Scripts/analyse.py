@@ -7,6 +7,7 @@ import analytics.high_level as hl
 def analyse(algorithm, trainingOn, estimating, parameters, filename):
     print("  - " + filename)
     df = gd.grab_prepared_data(filename)
+    hl.create_image_scatterHours(filename, df)
     hl.create_image_boxplot(filename, df)
     hl.create_statistics(algorithm, trainingOn, estimating, parameters, filename, df)
 

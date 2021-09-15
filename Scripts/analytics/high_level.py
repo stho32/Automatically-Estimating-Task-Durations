@@ -28,7 +28,7 @@ def create_image_boxplot(filename, df):
         ))
 
     fig.write_image(filename + ".png", width=1200, height=700, scale=1)
-    fig.show()
+    #fig.show()
 
 def create_image_scatterHours(filename, df):
     fig = go.Figure()
@@ -51,7 +51,7 @@ def create_image_scatterHours(filename, df):
 
     fig.update_traces(marker_size=5)
 
-    fig.write_image(filename + ".png", width=1200, height=700, scale=1)
+    fig.write_image(filename + ".scatter.png", width=1200, height=700, scale=1)
     #fig.show()
 
 def create_statistics(algorithm, trainingOn, estimating, parameters, filename, df):
