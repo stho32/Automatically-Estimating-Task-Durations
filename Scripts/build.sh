@@ -14,7 +14,7 @@
 
 # execute measurements
 #pwsh A001-execute.ps1
-#bash ./A002-execute.sh
+bash ./A002-execute.sh
 
 # analyse and build review + graphs
 python3 ./analyse.py

@@ -39,8 +39,12 @@ analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L75%M', './output/A002_2_sw
 analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L75%M', './output/A002_2_swearchiv2020_swearchiv2021_075.csv')
 
 
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L50%M', './output/A002_2_swearchiv2020_swearchiv2020_050.csv')
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L50%M', './output/A002_2_swearchiv2020_swearchiv2021_050.csv')
 
 
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2020', 'L25%M', './output/A002_2_swearchiv2020_swearchiv2020_025.csv')
+analyse('A002_2', 'SWEArchiv2020', 'SWEArchiv2021', 'L25%M', './output/A002_2_swearchiv2020_swearchiv2021_025.csv')
 
 
 
