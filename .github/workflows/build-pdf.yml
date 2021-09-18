@@ -31,7 +31,7 @@ jobs:
       - name: compile french version 
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: Documentation/main.tex
+          root_file: Documentation/main_fr.tex
           
       - run: |
           mv ./main_fr.pdf ./output/estimating-task-durations_fr.pdf
