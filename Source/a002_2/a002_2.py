@@ -1,4 +1,4 @@
-"""Implementation of estimation algorithm A002_1
+"""Implementation of estimation algorithm A002_2
 
 The goal of this algorithm is to provide "simply an average".
 
