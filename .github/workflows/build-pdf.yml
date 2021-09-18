@@ -34,7 +34,7 @@ jobs:
           root_file: Documentation/main.tex
           
       - run: |
-          mv ./main.pdf ./output/estimating-task-durations_fr.pdf
+          mv ./main_fr.pdf ./output/estimating-task-durations_fr.pdf
 
       - name: compile german version 
         uses: xu-cheng/latex-action@v2
@@ -42,7 +42,7 @@ jobs:
           root_file: Documentation/main_de.tex
           
       - run: |
-          mv ./main.pdf ./output/estimating-task-durations_de.pdf
+          mv ./main_de.pdf ./output/estimating-task-durations_de.pdf
 
 #      - uses: actions/upload-artifact@master
 #        with:
