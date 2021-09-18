@@ -17,10 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: |
+          pwd
+
       - name: compile english version 
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: Documentation/main.tex
+          root_file: ./Documentation/main.tex
           
       - run: |
           mv ./main.pdf ./output/estimating-task-durations_en.pdf
