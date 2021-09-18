@@ -17,25 +17,43 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Compile LaTeX document
+      - name: compile english version 
         uses: xu-cheng/latex-action@v2
         with:
           root_file: Documentation/main.tex
           
       - run: |
-          mv ./main.pdf ./output/estimating-task-durations.pdf
-      
-      - uses: actions/upload-artifact@master
+          mv ./main.pdf ./output/estimating-task-durations_en.pdf
+
+      - name: compile french version 
+        uses: xu-cheng/latex-action@v2
         with:
-            name: pdf
-            path: output/estimating-task-durations.pdf
+          root_file: Documentation/main.tex
+          
+      - run: |
+          mv ./main.pdf ./output/estimating-task-durations_fr.pdf
+
+      - name: compile german version 
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: Documentation/main_de.tex
+          
+      - run: |
+          mv ./main.pdf ./output/estimating-task-durations_de.pdf
+
+#      - uses: actions/upload-artifact@master
+#        with:
+#            name: pdf
+#            path: output/estimating-task-durations.pdf
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            output/estimating-task-durations.pdf
+            output/estimating-task-durations_en.pdf
+            output/estimating-task-durations_fr.pdf
+            output/estimating-task-durations_de.pdf
 
       - name: Automatic Release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -46,4 +64,6 @@ jobs:
           prerelease: false
           title: "Find the newest stuff here"
           files: |
-            output/estimating-task-durations.pdf
+            output/estimating-task-durations_en.pdf
+            output/estimating-task-durations_fr.pdf
+            output/estimating-task-durations_de.pdf

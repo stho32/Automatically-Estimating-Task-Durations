@@ -1,0 +1,86 @@
+\documentclass[12pt,a4paper]{article}
+
+%\usepackage[german]{babel} %Für die indirekte Angabe von Umlauten. Es müssen dann Umlaute wie folgt im Code angegeben werden: "a "o "u "s.
+
+\usepackage[utf8]{inputenc}
+%dieses Paket ermöglicht uns, Umlaute im Text als solche eingeben zu können (Windows/Linux)
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{wrapfig}
+\usepackage{hyperref}% für die Einbettung von Hyperlinks
+\usepackage{multirow}
+\usepackage[round]{natbib}
+\usepackage{longtable}
+\bibliographystyle{apalike}
+
+\newtheorem{definition}{Definition}[section]
+\newtheorem{interview}{Interview}[section]
+\newtheorem{satz}{Satz}[section]
+\newtheorem{beispiel}{Beispiel}[section]
+\newtheorem{bemerkung}{Bemerkung}[section]
+\newtheorem{literaturverzeichnis}{Literaturverzeichnis}[section]
+
+\usepackage[top=20mm, bottom=20mm, left=20mm, right=20mm, includehead]{geometry} % Document Margins
+\setlength{\topmargin}{0cm}
+\setlength{\parindent}{0mm}
+\setlength{\parskip}{2mm}
+\setlength{\evensidemargin}{0mm}
+\setlength{\oddsidemargin}{0cm}
+%\pagestyle{headings}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+\thispagestyle{empty}
+\vspace*{-3cm}
+\begin{center}
+\large \textsc{}
+\vspace{0.5cm}
+%\hrule
+\vspace{5.5cm}
+{\large}\\
+\vspace{1cm}
+{\Large \bf
+Automatically Estimating Task Durations}\\
+\vspace*{1cm}
+{\large using arithmetic and artificial intelligence}
+\end{center}
+\vspace*{14cm}
+
+
+\hspace*{\fill} from Stefan Hoffmann and others, \today
+
+\newpage
+\pagenumbering{Roman}
+\tableofcontents
+
+%\newpage
+%\addcontentsline{toc}{section}{tables} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+%\listoftables
+
+%\newpage
+%\addcontentsline{toc}{section}{Abbildungsverzeichnis} %wenn es im Inhaltsverzeichnis erscheinen soll - sonst auskommentieren mit "%"
+%\listoffigures
+
+\newpage
+\pagenumbering{arabic}
+
+\input{Documentation/00000-Introduction/index_fr}
+\input{Documentation/00001-Accompagning-Material/index_fr}
+\input{Documentation/00002-Quality-Assurance/index_fr}
+
+\input{Documentation/10000-A001/index_fr}
+\input{Documentation/10000-A002/index_fr}
+\input{Documentation/10000-A003/index_fr}
+\input{Documentation/10000-A004/index_fr}
+
+\input{Documentation/20000-Results/index_fr}
+
+\end{document}
+
