@@ -1,15 +1,45 @@
 \newpage{}
 
 \hypertarget{a003---10-categories}{%
-\section{A003 - 10 categories}\label{a003---10-categories}}
+\section{A003 - 10 catégories}\label{a003---10-categories}}
 
 \hypertarget{description}{%
 \subsection{Description}}
 
-Another idea how we might become better than A001 is that we use
-categories. We divide the tasks into 10 groups that have distinct
-properties. We only have to find out what a good group would look like.
-This could potentially reduce the dispersion especially around the
-smaller tasks which might save us from some error.
+Pour faire mieux que A001 on peux utiliser des catégories. 
+Les tâches sont divisés en 10 groupes qui ont des proprieté differentes.
+Le but est de réduire la dispersion dans la catégorie des tâches de moins d'une heure.
+Mais comment ce faire?
 
-But how to do this in a smart way?
+\subsubsection{A003.1}
+
+On crée un barème linéar pour les tâches qui sont 
+\begin{enumerate}
+\tightlist
+\item inférieures à 30 minutes,
+\item supérieures à 30 minutes et inférieures à une heure,
+\item supérieures à une heur et inférieures à deux heures
+\item supérieures à 2 heures et inférieures à 3 heures
+\item supérieures à 3 heures et inférieures à 4 heures
+\item supérieures à 4 heures et inférieures à 5 heures
+\item supérieures à 5 heures et inférieures à 6 heures
+\item supérieures à 6 heures et inférieures à 7 heures
+\item supérieures à 7 heures et inférieures à 8 heures
+\item supérieures à 8 heures
+\end{enumerate}
+
+Notre algorithme pour apprendre les mots qui sont signifiqative par catégorie c'est ca:
+\begin{enumerate}
+\tightlist
+\item on recueille tous les mots par catégorie
+\item pour toutes les catégories:
+    \begin{enumerate}
+        \tightlist
+        \item soustraire tous les mots qui font partie d'une autre catégorie
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+
