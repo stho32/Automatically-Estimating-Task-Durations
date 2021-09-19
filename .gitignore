@@ -1,3 +1,4 @@
 Source/experiments/dpw-model.json
 *.csv
 __pycache__
+*.swp

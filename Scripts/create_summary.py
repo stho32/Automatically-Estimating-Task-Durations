@@ -31,4 +31,4 @@ with open("./output/summary-table.tex", "w") as summaryfile:
         headers = ["Algorithm", "Training on", "Estimating", "with params", "deviation", "mse"],
         tablefmt="latex_raw",
         colalign=("left", "left", "left", "right", "right", "right")
-        ))
+        ).replace("tabular", "longtable"))
