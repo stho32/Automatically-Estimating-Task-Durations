@@ -104,27 +104,21 @@ if args.learn:
 
     for category in range(1,11):
         in_this_category = df[df["Category"]==category]
-        print(in_this_category)
+        the_other_categories = df[df["Category"]!=category]
+
+        specific_words = set()
+        specific_words = allWordsOf(in_this_category["Name"])
+        unspecific_words = allWordsOf(the_other_categories["Name"])
+        specific_words.difference_update(unspecific_words)
+        print("category " + str(category) + " has " + str(len(specific_words)))
+
         information_per_category.append(
             dict(
                 category = category,
-                words = allWordsOf(in_this_category["Name"]),
-                #tasks = in_this_category,
+                words = list(specific_words), 
                 task_count = len(in_this_category),
                 avg_duration_in_seconds = in_this_category["DurationInSeconds"].mean()
             ))
-
-    for category in information_per_category:
-        print("  - optimizing category " + str(category["category"]))
-
-        for theOtherCategory in information_per_category:
-            if theOtherCategory["category"] == category["category"]:
-                continue
-
-            category["words"].difference_update(theOtherCategory["words"])
-
-    for category in information_per_category:
-        category["words"] = list(category["words"])
 
     las.save_json(args.output, information_per_category)
 
