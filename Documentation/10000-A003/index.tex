@@ -6,10 +6,35 @@
 \hypertarget{description}{%
 \subsection{Description}}
 
-Another idea how we might become better than A001 is that we use
-categories. We divide the tasks into 10 groups that have distinct
-properties. We only have to find out what a good group would look like.
-This could potentially reduce the dispersion especially around the
-smaller tasks which might save us from some error.
+To be better than A001 we could use a categorization.
+For that we divide all tasks into 10 groups with similarities. 
+Our target here is to reduce the dispersion within those groups. E.g. we know that there are a lot of tasks below half an hour duration. A001 often claims they are more costly. If we could clearly say that a task would belong to that category we could reduce our error margin here.
+But how can we accomplish that?
 
-But how to do this in a smart way?
+\subsubsection{A003.1}
+
+We divide our tasks using a linear scale
+\begin{enumerate}
+\tightlist
+\item smaller than 30 minutes,
+\item bigger than 30 minutes and less than one hour,
+\item bigger than 1 hour and less than 2 hours
+\item bigger than 2 hour and less than 3 hours
+\item bigger than 3 hour and less than 4 hours
+\item bigger than 4 hour and less than 5 hours
+\item bigger than 5 hour and less than 6 hours
+\item bigger than 6 hour and less than 7 hours
+\item bigger than 7 hour and less than 8 hours
+\item bigger than 8 heures
+\end{enumerate}
+
+Our algorithm tries to identify significant words that are unique par category:
+\begin{enumerate}
+\tightlist
+\item collect all words in a category
+\item for all categories:
+    \begin{enumerate}
+        \tightlist
+        \item remove all words that are somehow mentioned in another category
+    \end{enumerate}
+\end{enumerate}
