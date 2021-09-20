@@ -1,15 +1,41 @@
 \newpage{}
 
 \hypertarget{a003---10-categories}{%
-\section{A003 - 10 categories}\label{a003---10-categories}}
+\section{A003 - 10 Kategorien}\label{a003---10-categories}}
 
 \hypertarget{description}{%
 \subsection{Description}}
 
-Another idea how we might become better than A001 is that we use
-categories. We divide the tasks into 10 groups that have distinct
-properties. We only have to find out what a good group would look like.
-This could potentially reduce the dispersion especially around the
-smaller tasks which might save us from some error.
+Um besser als A001 zu werden könnten wir Kategorisierung anwenden.
+Dazu teilen wir die Aufgaben in 10 Gruppen mit ähnlichen Eigenschaften auf.
+Wenn man bei A001 betrachtet, sieht man dass es (zumindest in unseren Datenmengen) viele Aufgaben mit weniger als 30 Minuten und 1 Stunde Dauer gibt. D.h. wenn man einigermaßen sicher sagen könnte, dass eine Aufgabe zu einer entsprechenden Gruppe gehört, dann könnte man Streuungen verhindern, die A001 eben produziert.
 
-But how to do this in a smart way?
+Aber wie machen wir das?
+
+\subsubsection{A003.1}
+
+Wir teilen die Aufgaben entlang der Dauer auf
+\begin{enumerate}
+\tightlist
+\item kleiner als 30 Minuten,
+\item mehr als 30 Minuten und kleiner als 1 Stunde,
+\item mehr als 1 Stunde und kleiner als 2 Stunden
+\item mehr als 2 Stunden und kleiner als 3 Stunden
+\item mehr als 3 Stunden und kleiner als 4 Stunden
+\item mehr als 4 Stunden und kleiner als 5 Stunden
+\item mehr als 5 Stunden und kleiner als 6 Stunden
+\item mehr als 6 Stunden und kleiner als 7 Stunden
+\item mehr als 7 Stunden und kleiner als 8 Stunden
+\item mehr als 8 Stunden
+\end{enumerate}
+
+Unser Algorithmus versucht wichtige Worte zu identifizieren, Worte die pro Kategorie eindeutig sind. Und zwar so:
+\begin{enumerate}
+\tightlist
+\item Sammle alle Worte zusammen, die in einer Kategorie vorkommen
+\item Für jede einzelne Kategorie:
+    \begin{enumerate}
+        \tightlist
+        \item lösche alle Worte aus der eigenen Liste, die in irgendeiner der anderen Kategorien vorkommen
+    \end{enumerate}
+\end{enumerate}
