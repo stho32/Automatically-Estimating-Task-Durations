@@ -1,0 +1,60 @@
+{
+    "algorithms": [
+        {
+            "name" : "A001",
+            "model" : "./a001_model.json",
+            "learn" : "",
+            "estimate" : "",
+            "parameters" : [
+                { "label" : "25%P", "value" : "25" },
+                { "label" : "50%P", "value" : "50" },
+                { "label" : "75%P", "value" : "75" },
+                { "label" : "80%P", "value" : "80" },
+                { "label" : "90%P", "value" : "90" },
+                { "label" : "100%P", "value" : "100" }
+            ],
+            "active" : false
+        },
+        {
+            "name": "A002.1",
+            "model" : "./a002_1_model.json",
+            "learn" : "python3 ../Source/a002_1/a002_1.py --learn --input @@trainOn@@ --output @@model@@",
+            "estimate" : "python3 ../Source/a002_1/a002_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
+            "parameters" : [],
+            "active" : true
+        },
+        {
+            "name": "A002.2",
+            "model": "./a002_2_@@parameter@@_model.json",
+            "learn" : "python3 ../Source/a002_2/a002_2.py --learn --input @@trainOn@@ --output @@model@@ --middlepercent @@parameter@@",
+            "estimate" : "python3 ../Source/a002_2/a002_2.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
+            "parameters" : [
+                { "label" : "L25%P", "value" : "25" },
+                { "label" : "L50%P", "value" : "50" },
+                { "label" : "L75%P", "value" : "75" },
+                { "label" : "L85%P", "value" : "85" },
+                { "label" : "L95%P", "value" : "95" }
+            ],
+            "active" : true
+        },
+        {
+            "name": "A003.1",
+            "model" : "./a003_1_model.json",
+            "learn" : "python3 ../Source/a003_1/a003_1.py --learn --input @@trainOn@@ --output @@model@@",
+            "estimate" : "python3 ../Source/a003_1/a003_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
+            "parameters" : [],
+            "active" : true
+        }
+    ],
+    "datarootdir" : "../../../Automatically-Estimating-Task-Durations-Private",
+    "datacombinations" : [
+        { 
+            "trainOn": "SWE-Archiv-2020.csv",
+            "estimate": "SWE-Archiv-2020.csv"
+        },
+        { 
+            "trainOn": "SWE-Archiv-2020.csv",
+            "estimate": "SWE-Archiv-2021.csv"
+        }
+    ]
+}
