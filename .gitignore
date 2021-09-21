@@ -3,3 +3,4 @@ Source/experiments/dpw-model.json
 __pycache__
 *.swp
 .ipynb_checkpoints
+*_model.json
