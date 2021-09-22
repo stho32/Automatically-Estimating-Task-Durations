@@ -6,14 +6,14 @@
             "learn" : "python3 ../Source/a001/a001.py --learn --input @@trainOn@@ --output @@model@@",
             "estimate" : "python3 ../Source/a001/a001.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@ --probabilityInPercent @@parameter@@",
             "parameters" : [
-                { "label" : "25%P", "value" : "25" },
-                { "label" : "50%P", "value" : "50" },
-                { "label" : "75%P", "value" : "75" },
-                { "label" : "80%P", "value" : "80" },
-                { "label" : "90%P", "value" : "90" },
-                { "label" : "100%P", "value" : "100" }
+                { "label" : "25%P", "value" : "25", "filenameext" : "025" },
+                { "label" : "50%P", "value" : "50", "filenameext" : "050" },
+                { "label" : "75%P", "value" : "75", "filenameext" : "075" },
+                { "label" : "80%P", "value" : "80", "filenameext" : "080" },
+                { "label" : "90%P", "value" : "90", "filenameext" : "090" },
+                { "label" : "100%P", "value" : "100", "filenameext" : "100" }
             ],
-            "active" : true
+            "active" : false
         },
         {
             "name": "A002.1",
@@ -29,13 +29,13 @@
             "learn" : "python3 ../Source/a002_2/a002_2.py --learn --input @@trainOn@@ --output @@model@@ --middlepercent @@parameter@@",
             "estimate" : "python3 ../Source/a002_2/a002_2.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [
-                { "label" : "L25%P", "value" : "25" },
-                { "label" : "L50%P", "value" : "50" },
-                { "label" : "L75%P", "value" : "75" },
-                { "label" : "L85%P", "value" : "85" },
-                { "label" : "L95%P", "value" : "95" }
+                { "label" : "L25%P", "value" : "25", "filenameext" : "025" },
+                { "label" : "L50%P", "value" : "50", "filenameext" : "050" },
+                { "label" : "L75%P", "value" : "75", "filenameext" : "075" },
+                { "label" : "L85%P", "value" : "85", "filenameext" : "085" },
+                { "label" : "L95%P", "value" : "95", "filenameext" : "095" }
             ],
-            "active" : false
+            "active" : true
         },
         {
             "name": "A003.1",
@@ -46,6 +46,7 @@
             "active" : false
         }
     ],
+    "output_template" : "./output/@@trainOn@@_@@estimate@@_@@filenameext@@",
     "datarootdir" : "../../../Automatically-Estimating-Task-Durations-Private",
     "datacombinations" : [
         { 

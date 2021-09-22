@@ -1,5 +1,6 @@
 import pandas as pd
 import analytics.conversions as conv
+import json
 
 def grab_prepared_data(filename):
     df = pd.read_csv(filename)
@@ -9,3 +10,11 @@ def grab_prepared_data(filename):
     df = df.sort_values('HoursSpent')
     df['Task'] = range(1,len(df)+1)
     return df
+
+def save_json(filename, data):
+    with open(filename, "w") as output:
+        json.dump(data, output)
+
+def load_json(filename):
+    with open(filename) as inputfile:
+        return json.load(inputfile)
