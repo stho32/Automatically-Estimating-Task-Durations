@@ -6,11 +6,11 @@ learn the contents of an csv file:
 
 estimate 1 task:
 
-    a001.py --estimate --text "hello world" --model model.json
+    a001.py --estimate --text "hello world" --model model.json --probabilityInPercent 80
 
 estimate a csv file full of tasks (for algorithm validation purposes):
 
-    a001.py --validation --input input.csv --output output.csv --model model.json
+    a001.py --validation --input input.csv --output output.csv --model model.json --probabilityInPercent 80
 
 """
 
@@ -20,6 +20,7 @@ import tools.conversions as conv
 import tools.load_and_save as las
 import json
 import re
+import random
 
 parser = argparse.ArgumentParser()
 
@@ -31,6 +32,8 @@ group.add_argument("--validation", action="store_true", help="read a csv file an
 parser.add_argument("--input", type=str, help="the path to the input csv file for learning and validation")
 parser.add_argument("--output", type=str, help="write the results of the execution to that file")
 parser.add_argument("--model", type=str, help="path to the model.json file which has been created by the learn option")
+
+parser.add_argument("--probabilityInPercent", type=int, help="probability/certainty of task completion (higher values estimate higher)")
 
 args = parser.parse_args()
 
@@ -46,21 +49,25 @@ def allWordsOf(listOfStrings):
         result.update(words)
     return result
 
-def algorithm(toEstimate, model):
+def algorithm(toEstimate, model, probabilityInPercent):
     """the algorithm that performs the estimation"""
 
     words = splitToWords(toEstimate)
     
-    highest_category = 0
-    average_duration_of_that_category = 0
-    for category in model:
-        for word in words:
-            if ((word in category["words"]) and (category["category"] > highest_category)):
-                print("found " + word + " in category " + str(category["category"]))
-                highest_category = category["category"]
-                average_duration_of_that_category = category["avg_duration_in_seconds"]
+    sum_duration_in_seconds = 0
 
-    return average_duration_of_that_category
+    for word in words:
+        if word in model:
+            randomSamples = list()
+            for i in range(1,100):
+                sample = random.choice(model[word])
+                randomSamples.append(sample)
+            randomSamples.sort()
+            duration_in_seconds = randomSamples[probabilityInPercent]
+            print("- found historic duration information for " + word + " : " + str(duration_in_seconds))
+            sum_duration_in_seconds += duration_in_seconds
+
+    return sum_duration_in_seconds
 
 if args.learn:
     """learn from csv"""
@@ -86,14 +93,14 @@ if args.estimate:
     """estimate a new task"""
     
     model = las.load_json(args.model)
-    print (algorithm(args.input, model))
+    print (algorithm(args.input, model, args.probabilityInPercent))
 
 if args.validation:
     """estimate a bunch of tasks to validate algorithm"""
     print ("Estimating all tasks in " + args.input)
     model = las.load_json(args.model)
     tasksToEstimate = las.load_csv(args.input)
-    tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model), axis=1)
+    tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model, args.probabilityInPercent), axis=1)
     las.save_csv(args.output, tasksToEstimate)
 
 
