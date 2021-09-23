@@ -34,9 +34,13 @@ parser.add_argument("--output", type=str, help="write the results of the executi
 parser.add_argument("--model", type=str, help="path to the model.json file which has been created by the learn option")
 parser.add_argument("--middlepercent", type=int, help="learn from the middle percent percent of the data")
 
+parser.add_argument("--verbose", action="store_true", help="verbose output")
+
 args = parser.parse_args()
 
-print(args)
+def verbose(value):
+    if args.verbose:
+        print(value)
 
 def algorithm(toEstimate, model):
     """the algorithm that performs the estimation"""
@@ -44,7 +48,7 @@ def algorithm(toEstimate, model):
 
 if args.learn:
     """learn from csv"""
-    print ("Algorithm is learning from " + str(args.middlepercent) + " middle % of presented data... one moment please")
+    verbose ("Algorithm is learning from " + str(args.middlepercent) + " middle % of presented data... one moment please")
     df = las.load_csv(args.input)
 
     count = len(df.index) # this is how many entries there are
@@ -55,18 +59,18 @@ if args.learn:
     mean = df.DurationInSeconds.mean()
     las.save_json(args.output, dict(mean = mean))
 
-    print ("learned that the mean of the middle " + str(args.middlepercent) + "% is:", mean) 
+    verbose ("learned that the mean of the middle " + str(args.middlepercent) + "% is:" + str(mean)) 
 
 if args.estimate:
     """estimate a new task"""
     
     model = las.load_json(args.model)
     
-    print (model["mean"])
+    verbose (model["mean"])
 
 if args.validation:
     """estimate a bunch of tasks to validate algorithm"""
-    print ("Estimating all tasks in " + args.input)
+    verbose ("Estimating all tasks in " + args.input)
     model = las.load_json(args.model)
     tasksToEstimate = las.load_csv(args.input)
     tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model), axis=1)
