@@ -44,7 +44,13 @@ parser.add_argument("--input", type=str, help="the path to the input csv file fo
 parser.add_argument("--output", type=str, help="write the results of the execution to that file")
 parser.add_argument("--model", type=str, help="path to the model.json file which has been created by the learn option")
 
+parser.add_argument("--verbose", action="store_true", help="verbose output")
+
 args = parser.parse_args()
+
+def verbose(value):
+    if args.verbose:
+        print(value)
 
 def categorizeTasksByTimeSpent(durationInSeconds):
     durationInHours = durationInSeconds / 60 / 60  
@@ -88,7 +94,7 @@ def algorithm(toEstimate, model):
     for category in model:
         for word in words:
             if ((word in category["words"]) and (category["category"] > highest_category)):
-                print("found " + word + " in category " + str(category["category"]))
+                verbose("found " + word + " in category " + str(category["category"]))
                 highest_category = category["category"]
                 average_duration_of_that_category = category["avg_duration_in_seconds"]
 
@@ -96,7 +102,7 @@ def algorithm(toEstimate, model):
 
 if args.learn:
     """learn from csv"""
-    print ("Algorithm is learning from the presented data... one moment please")
+    verbose ("Algorithm is learning from the presented data... one moment please")
     df = las.load_csv(args.input)
     df["Category"] = df.apply (lambda row: categorizeTasksByTimeSpent(row["DurationInSeconds"]), axis = 1)
 
@@ -110,7 +116,7 @@ if args.learn:
         specific_words = allWordsOf(in_this_category["Name"])
         unspecific_words = allWordsOf(the_other_categories["Name"])
         specific_words.difference_update(unspecific_words)
-        print("category " + str(category) + " has " + str(len(specific_words)))
+        verbose("category " + str(category) + " has " + str(len(specific_words)))
 
         information_per_category.append(
             dict(
@@ -127,11 +133,11 @@ if args.estimate:
     """estimate a new task"""
     
     model = las.load_json(args.model)
-    print (algorithm(args.input, model))
+    verbose (algorithm(args.input, model))
 
 if args.validation:
     """estimate a bunch of tasks to validate algorithm"""
-    print ("Estimating all tasks in " + args.input)
+    verbose ("Estimating all tasks in " + args.input)
     model = las.load_json(args.model)
     tasksToEstimate = las.load_csv(args.input)
     tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model), axis=1)

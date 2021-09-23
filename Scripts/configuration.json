@@ -42,7 +42,7 @@
             "learn" : "python3 ../Source/a003_1/a003_1.py --learn --input @@trainOn@@ --output @@model@@",
             "estimate" : "python3 ../Source/a003_1/a003_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
-            "active" : false
+            "active" : true
         }
     ],
     "output_template" : "./output/@@trainOn@@_@@estimate@@_@@filenameext@@",
