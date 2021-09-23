@@ -13,7 +13,7 @@
                 { "label" : "90%P", "value" : "90", "filenameext" : "090" },
                 { "label" : "100%P", "value" : "100", "filenameext" : "100" }
             ],
-            "active" : false
+            "active" : true
         },
         {
             "name": "A002.1",
@@ -25,15 +25,14 @@
         },
         {
             "name": "A002.2",
-            "model": "./a002_2_@@parameter@@_model.json",
             "learn" : "python3 ../Source/a002_2/a002_2.py --learn --input @@trainOn@@ --output @@model@@ --middlepercent @@parameter@@",
             "estimate" : "python3 ../Source/a002_2/a002_2.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [
-                { "label" : "L25%P", "value" : "25", "filenameext" : "025" },
-                { "label" : "L50%P", "value" : "50", "filenameext" : "050" },
-                { "label" : "L75%P", "value" : "75", "filenameext" : "075" },
-                { "label" : "L85%P", "value" : "85", "filenameext" : "085" },
-                { "label" : "L95%P", "value" : "95", "filenameext" : "095" }
+                { "label" : "L25%P", "value" : "25", "filenameext" : "025", "model" : "./a002_2_025_model.json" },
+                { "label" : "L50%P", "value" : "50", "filenameext" : "050", "model" : "./a002_2_050_model.json" },
+                { "label" : "L75%P", "value" : "75", "filenameext" : "075", "model" : "./a002_2_075_model.json" },
+                { "label" : "L85%P", "value" : "85", "filenameext" : "085", "model" : "./a002_2_085_model.json" },
+                { "label" : "L95%P", "value" : "95", "filenameext" : "095", "model" : "./a002_2_095_model.json" }
             ],
             "active" : true
         },

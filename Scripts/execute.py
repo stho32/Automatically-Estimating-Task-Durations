@@ -22,12 +22,10 @@ for algorithm_definition in configuration["algorithms"]:
 
     print("  - " + algorithm_definition["name"])
     for datacombination in datacombinations:
-        learn = ec.derive_execution_combinations(algorithm_definition["learn"], algorithm_definition, datacombination, output_template)
+        executions = ec.derive_execution_combinations(algorithm_definition, datacombination, output_template)
 
-        for combination in learn:
-            print("    - " + combination)
+        for combination in executions:
+            commandline = combination
+            print("    - " + algorithm_definition["name"] + ": " + commandline)
 
-        estimate = ec.derive_execution_combinations(algorithm_definition["estimate"], algorithm_definition, datacombination, output_template)
-
-        for combination in estimate:
-            print("    -> " + combination)
+            temp = input()
