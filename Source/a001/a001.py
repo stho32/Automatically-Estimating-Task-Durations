@@ -12,6 +12,7 @@ estimate a csv file full of tasks (for algorithm validation purposes):
 
     a001.py --validation --input input.csv --output output.csv --model model.json --probabilityInPercent 80
 
+use --verbose in case you want to see some output
 """
 
 import argparse
@@ -35,14 +36,32 @@ parser.add_argument("--model", type=str, help="path to the model.json file which
 
 parser.add_argument("--probabilityInPercent", type=int, help="probability/certainty of task completion (higher values estimate higher)")
 
+parser.add_argument("--verbose", action="store_true", help="more output")
+
 args = parser.parse_args()
 
+def verbose(value):
+    """
+        Print to screen in case verbose is set
+    """
+    if (args.verbose):
+        print(value)
+
 def splitToWords(value):
+    """
+        Use a regular expression to split the given string into
+        acceptable "words".
+    """
     words = re.split('[ :\(\)\.\?/]',value)
     words = list(filter(lambda x: len(x)>0, words))
     return words
 
 def allWordsOf(listOfStrings):
+    """
+        Creates a set of words in wich all words
+        that can be collected from the list of given strings
+        are represented exactly once.
+    """
     result = set()
     for value in listOfStrings:
         words = splitToWords(value)
@@ -50,8 +69,9 @@ def allWordsOf(listOfStrings):
     return result
 
 def algorithm(toEstimate, model, probabilityInPercent):
-    """the algorithm that performs the estimation"""
-
+    """
+        the algorithm that performs the estimation
+    """
     words = splitToWords(toEstimate)
     
     sum_duration_in_seconds = 0
@@ -59,19 +79,21 @@ def algorithm(toEstimate, model, probabilityInPercent):
     for word in words:
         if word in model:
             randomSamples = list()
-            for i in range(1,100):
+            for i in range(0,101):
                 sample = random.choice(model[word])
                 randomSamples.append(sample)
             randomSamples.sort()
             duration_in_seconds = randomSamples[probabilityInPercent]
-            print("- found historic duration information for " + word + " : " + str(duration_in_seconds))
+            verbose("- found historic duration information for " + word + " : " + str(duration_in_seconds))
             sum_duration_in_seconds += duration_in_seconds
 
     return sum_duration_in_seconds
 
 if args.learn:
-    """learn from csv"""
-    print ("Algorithm is learning from the presented data... one moment please")
+    """
+        learn from csv
+    """
+    verbose("Algorithm is learning from the presented data... one moment please")
     df = las.load_csv(args.input)
 
     word_values = dict()
@@ -83,7 +105,7 @@ if args.learn:
             if not word in word_values:
                 word_values[word] = list()
 
-            print("remember " + word + " as " + str(duration_per_word) + " seconds")
+            verbose("remember " + word + " as " + str(duration_per_word) + " seconds")
             word_values[word].append(duration_per_word)
 
     las.save_json(args.output, word_values)
@@ -97,7 +119,7 @@ if args.estimate:
 
 if args.validation:
     """estimate a bunch of tasks to validate algorithm"""
-    print ("Estimating all tasks in " + args.input)
+    verbose ("Estimating all tasks in " + args.input)
     model = las.load_json(args.model)
     tasksToEstimate = las.load_csv(args.input)
     tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model, args.probabilityInPercent), axis=1)
