@@ -53,7 +53,7 @@ if args.learn:
     mean = df.DurationInSeconds.mean()
     las.save_json(args.output, dict(mean = mean))
 
-    verbose("learned that the mean is:", mean) 
+    verbose("learned that the mean is:" + str(mean))
 
 if args.estimate:
     """estimate a new task"""

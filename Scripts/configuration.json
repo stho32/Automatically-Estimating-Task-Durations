@@ -21,7 +21,7 @@
             "learn" : "python3 ../Source/a002_1/a002_1.py --learn --input @@trainOn@@ --output @@model@@",
             "estimate" : "python3 ../Source/a002_1/a002_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
-            "active" : false
+            "active" : true
         },
         {
             "name": "A002.2",
