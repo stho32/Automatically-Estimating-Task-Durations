@@ -16,11 +16,15 @@ resulttable = []
 for f in files:
     print(f)
     filecontent = load_json_data(f)
+    parameter = ""
+    if "label" in filecontent["parameters"]:
+        parameter = filecontent["parameters"]["label"]
+
     resulttable.append([
         filecontent["algorithm"].replace("_", "\\_"),
         filecontent["trainingOn"],
         filecontent["estimating"],
-        filecontent["parameters"].replace("%", "\\%"),
+        parameter.replace("%", "\\%"),
         "{:.3f}".format(filecontent["mean"]) + ' $\pm$ ' + "{:.3f}".format(filecontent["standard_deviation"]) + ' hours',
         "{:.3f}".format(filecontent["mse"])
         ])

@@ -1,0 +1,1 @@
+{"algorithm": "A002.2", "trainingOn": "SWE-Archiv-2020.csv", "estimating": "SWE-Archiv-2020.csv", "parameters": {"label": "L95%P", "value": "95", "filenameext": "095", "model": "./a002_2_095_model.json"}, "mean": 0.21404617330803288, "standard_deviation": 7.691381255514504, "mse": 59.14533406466834}

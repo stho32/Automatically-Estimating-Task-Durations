@@ -59,6 +59,9 @@ def create_statistics(algorithm, trainingOn, estimating, parameters, filename, d
     standard_deviation = df["HoursDifference"].std()
     mse = mean_squared_error(df["HoursSpent"], df["HoursEstimated"])
 
+    if parameters == None:
+        parameters = ""
+
     data = dict(
             algorithm          = algorithm,
             trainingOn         = trainingOn,

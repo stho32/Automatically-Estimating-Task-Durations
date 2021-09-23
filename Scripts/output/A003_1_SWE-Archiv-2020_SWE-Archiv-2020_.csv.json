@@ -1,0 +1,1 @@
+{"algorithm": "A003.1", "trainingOn": "SWE-Archiv-2020.csv", "estimating": "SWE-Archiv-2020.csv", "parameters": "", "mean": -0.494515520271346, "standard_deviation": 6.857790429825402, "mse": 47.22786324412138}

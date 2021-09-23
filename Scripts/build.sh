@@ -15,9 +15,6 @@ mkdir output
 # execute measurements
 python3 ./execute.py
 
-# analyse and build review + graphs
-python3 ./analyse.py
-
 # create summaries
 python3 ./create_summary.py
 python3 ./create_latex_for_graphs.py

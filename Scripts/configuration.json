@@ -45,7 +45,7 @@
             "active" : true
         }
     ],
-    "output_template" : "./output/@@trainOn@@_@@estimate@@_@@filenameext@@",
+    "output_template" : "./output/@@name@@_@@trainOn@@_@@estimate@@_@@filenameext@@",
     "datarootdir" : "../../Automatically-Estimating-Task-Durations-Private",
     "datacombinations" : [
         { 

@@ -6,6 +6,17 @@
 import analytics.grab_data
 import analytics.exec_combinations as ec
 import os
+import pandas as pd
+import analytics.high_level as hl
+
+def analyse(algorithm, trainingOn, estimating, parameter, filename):
+    print("   ANALYSE - " + filename + "...")
+    
+    df = analytics.grab_data.grab_prepared_data(filename)
+
+    hl.create_image_scatterHours(filename, df)
+    hl.create_image_boxplot(filename, df)
+    hl.create_statistics(algorithm, trainingOn, estimating, parameter, filename, df)
 
 os.system('cls' if os.name=='nt' else 'clear')
 
@@ -30,8 +41,17 @@ for algorithm_definition in configuration["algorithms"]:
 
         for combination in executions:
             commandline = combination
-            print("    - " + algorithm_definition["name"] + ": " + commandline)
+            print("    - " + algorithm_definition["name"] + ": " + commandline["command"])
 
-            if not os.system(commandline) == 0:
+            if not os.system(commandline["command"]) == 0:
                 print("There has been a problem. Stopping execution.")
                 exit()
+
+            if not commandline["output"] == None:
+                analyse(
+                    algorithm_definition["name"], 
+                    commandline["trainOn"], 
+                    commandline["estimate"], 
+                    commandline["parameter"],
+                    commandline["output"]
+                )

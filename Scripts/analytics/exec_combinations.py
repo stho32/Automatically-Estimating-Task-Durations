@@ -39,12 +39,14 @@ def derive_execution_combinations(algorithm_definition, datacombination, output_
         This means, all executions come in pairs: learning + estimating
         They may be multiplied by the parameters.
     """
-
     result = list()
     # when the commandline is using the parameter definitions
     # then we multiply our output by all variants of the parameter
     algorithm_has_parameters = len(algorithm_definition["parameters"]) > 0
-    commands_to_complete = [algorithm_definition["learn"], algorithm_definition["estimate"]]
+    commands_to_complete = [
+        algorithm_definition["learn"], 
+        algorithm_definition["estimate"]
+    ]
 
     if algorithm_has_parameters:
         for parameter in algorithm_definition["parameters"]:
@@ -55,7 +57,25 @@ def derive_execution_combinations(algorithm_definition, datacombination, output_
             result.append(complete_command(command, algorithm_definition, datacombination, None, output_template, data_root_dir))
     
     return result
-        
+
+def create_output_path(output_template, datacombination, parameter, algorithm_name):
+    """
+        Where does he want his results?
+    """
+    output = output_template
+    output = output.replace("@@name@@", algorithm_name)
+    output = output.replace("@@trainOn@@", datacombination["trainOn"])
+    output = output.replace("@@estimate@@", datacombination["estimate"])
+
+    if parameter != None:
+        output = output.replace("@@filenameext@@", parameter["filenameext"])
+    else:
+        output = output.replace("@@filenameext@@", "")
+    
+    output = output.replace(".csv", "")
+    output = output + ".csv"   
+
+    return output
 
 def complete_command(command, algorithm_definition, datacombination, parameter, output_template, data_root_dir):
     """
@@ -74,16 +94,16 @@ def complete_command(command, algorithm_definition, datacombination, parameter, 
     result = result.replace("@@trainOn@@", os.path.join(data_root_dir, datacombination["trainOn"]))
     result = result.replace("@@estimate@@", os.path.join(data_root_dir, datacombination["estimate"]))
 
-    output = output_template
-    output = output.replace("@@trainOn@@", datacombination["trainOn"])
-    output = output.replace("@@estimate@@", datacombination["estimate"])
-    if parameter != None:
-        output = output.replace("@@filenameext@@", parameter["filenameext"])
-    else:
-        output = output.replace("@@filenameext@@", "")
-    output = output.replace(".csv", "")
-    output = output + ".csv"
+    output = None
 
-    result = result.replace("@@output@@", output)
+    if "@@output@@" in command:
+        output = create_output_path(output_template, datacombination, parameter, algorithm_definition["name"].replace(".", "_"))
+        result = result.replace("@@output@@", output)
 
-    return result
+    return dict( 
+        command = result,
+        output = output,
+        trainOn = datacombination["trainOn"],
+        estimate = datacombination["estimate"],
+        parameter = parameter
+    )
