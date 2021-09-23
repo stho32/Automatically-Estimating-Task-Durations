@@ -11,7 +11,7 @@
                 { "label" : "75%P", "value" : "75", "filenameext" : "075" },
                 { "label" : "80%P", "value" : "80", "filenameext" : "080" },
                 { "label" : "90%P", "value" : "90", "filenameext" : "090" },
-                { "label" : "100%P", "value" : "100", "filenameext" : "100" }
+                { "label" : "99%P", "value" : "99", "filenameext" : "099" }
             ],
             "active" : true
         },
@@ -46,7 +46,7 @@
         }
     ],
     "output_template" : "./output/@@trainOn@@_@@estimate@@_@@filenameext@@",
-    "datarootdir" : "../../../Automatically-Estimating-Task-Durations-Private",
+    "datarootdir" : "../../Automatically-Estimating-Task-Durations-Private",
     "datacombinations" : [
         { 
             "trainOn": "SWE-Archiv-2020.csv",
