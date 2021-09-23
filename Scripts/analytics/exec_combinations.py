@@ -3,6 +3,7 @@
     build a lot of different combinations for each algorithm
     so we can create a test matrix more easily
 """
+import os
 
 def derive_model_combinations(model_template, algorithm_definition):
     """
@@ -30,7 +31,7 @@ def derive_model_combinations(model_template, algorithm_definition):
     return result
 
 
-def derive_execution_combinations(algorithm_definition, datacombination, output_template):
+def derive_execution_combinations(algorithm_definition, datacombination, output_template, data_root_dir):
     """
         When an algorithm uses parameters, they are applied to either the learning,
         the execution, or both (e.g. by changing the model name for each combination).
@@ -43,24 +44,24 @@ def derive_execution_combinations(algorithm_definition, datacombination, output_
     # when the commandline is using the parameter definitions
     # then we multiply our output by all variants of the parameter
     algorithm_has_parameters = len(algorithm_definition["parameters"]) > 0
-    algorithm_parameters_have_model = False
-    if algorithm_has_parameters:
-        algorithm_parameters_have_model = "model" in algorithm_definition["parameters"][0]
-
     commands_to_complete = [algorithm_definition["learn"], algorithm_definition["estimate"]]
 
     if algorithm_has_parameters:
         for parameter in algorithm_definition["parameters"]:
             for command in commands_to_complete:
-                result.append(complete_command(command, algorithm_definition, datacombination, parameter, output_template))
+                result.append(complete_command(command, algorithm_definition, datacombination, parameter, output_template, data_root_dir))
     else:
         for command in commands_to_complete:
-            result.append(complete_command(command, algorithm_definition, datacombination, None, output_template))
+            result.append(complete_command(command, algorithm_definition, datacombination, None, output_template, data_root_dir))
     
     return result
         
 
-def complete_command(command, algorithm_definition, datacombination, parameter, output_template):
+def complete_command(command, algorithm_definition, datacombination, parameter, output_template, data_root_dir):
+    """
+        This function replaces all placeholders in one command
+        using one data combination and one parameter.
+    """
     result = command
 
     if "model" in algorithm_definition:
@@ -70,8 +71,8 @@ def complete_command(command, algorithm_definition, datacombination, parameter, 
             result = result.replace("@@model@@", parameter["model"])
         result = result.replace("@@parameter@@", parameter["value"])
 
-    result = result.replace("@@trainOn@@", datacombination["trainOn"])
-    result = result.replace("@@estimate@@", datacombination["estimate"])
+    result = result.replace("@@trainOn@@", os.path.join(data_root_dir, datacombination["trainOn"]))
+    result = result.replace("@@estimate@@", os.path.join(data_root_dir, datacombination["estimate"]))
 
     output = output_template
     output = output.replace("@@trainOn@@", datacombination["trainOn"])

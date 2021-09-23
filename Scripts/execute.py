@@ -11,6 +11,10 @@ os.system('cls' if os.name=='nt' else 'clear')
 
 directory = os.path.dirname(os.path.abspath(__file__))
 os.chdir(directory)
+print("I run in the following directory:")
+os.system("pwd")
+print("")
+
 configuration = analytics.grab_data.load_json("./configuration.json")
 data_root_dir = configuration["datarootdir"]
 datacombinations = configuration["datacombinations"]
@@ -22,10 +26,12 @@ for algorithm_definition in configuration["algorithms"]:
 
     print("  - " + algorithm_definition["name"])
     for datacombination in datacombinations:
-        executions = ec.derive_execution_combinations(algorithm_definition, datacombination, output_template)
+        executions = ec.derive_execution_combinations(algorithm_definition, datacombination, output_template, data_root_dir)
 
         for combination in executions:
             commandline = combination
             print("    - " + algorithm_definition["name"] + ": " + commandline)
 
-            temp = input()
+            if not os.system(commandline) == 0:
+                print("There has been a problem. Stopping execution.")
+                exit()
