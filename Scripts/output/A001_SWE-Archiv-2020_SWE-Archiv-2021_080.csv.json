@@ -1,1 +1,1 @@
-{"algorithm": "A001", "trainingOn": "SWE-Archiv-2020.csv", "estimating": "SWE-Archiv-2021.csv", "parameters": {"label": "80%P", "value": "80", "filenameext": "080"}, "mean": -0.3175574966246491, "standard_deviation": 12.250214228366083, "mse": 150.04920576519297}
+{"algorithm": "A001", "trainingOn": "SWE-Archiv-2020.csv", "estimating": "SWE-Archiv-2021.csv", "parameters": {"label": "80%P", "value": "80", "filenameext": "080"}, "mean": -0.31967907188811906, "standard_deviation": 12.222047767113692, "mse": 149.3618090580411}

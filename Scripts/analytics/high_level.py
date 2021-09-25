@@ -98,6 +98,8 @@ def create_image_error_distribution(filename, df):
             x=0.01
         ))
 
+    fig.update(layout_yaxis_range = [-1,40])
+
     fig.write_image(filename + ".error_distribution.png", width=1200, height=700, scale=1)
 
 def create_statistics(algorithm, trainingOn, estimating, parameters, filename, df):
