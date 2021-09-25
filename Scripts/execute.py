@@ -78,4 +78,6 @@ for algorithm_definition in configuration["algorithms"]:
                         print("      -> execution not needed, output already there")
                 else:
                     execute_combination(algorithm_definition, commandline)
+            else:
+                execute_combination(algorithm_definition, commandline)
 

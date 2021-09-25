@@ -1,16 +1,16 @@
-"""Implementation of estimation algorithm A001
+"""Implementation of estimation algorithm A004
 
 learn the contents of an csv file:
 
-    a001.py --learn --input input.csv --output model.json
+    a004.py --learn --input input.csv --output model.json
 
 estimate 1 task:
 
-    a001.py --estimate --text "hello world" --model model.json --probabilityInPercent 80
+    a004.py --estimate --text "hello world" --model model.json 
 
 estimate a csv file full of tasks (for algorithm validation purposes):
 
-    a001.py --validation --input input.csv --output output.csv --model model.json --probabilityInPercent 80
+    a004.py --validation --input input.csv --output output.csv --model model.json 
 
 use --verbose in case you want to see some output
 """
@@ -22,6 +22,7 @@ import tools.load_and_save as las
 import json
 import re
 import random
+import statistics
 
 parser = argparse.ArgumentParser()
 
@@ -33,8 +34,6 @@ group.add_argument("--validation", action="store_true", help="read a csv file an
 parser.add_argument("--input", type=str, help="the path to the input csv file for learning and validation")
 parser.add_argument("--output", type=str, help="write the results of the execution to that file")
 parser.add_argument("--model", type=str, help="path to the model.json file which has been created by the learn option")
-
-parser.add_argument("--probabilityInPercent", type=int, help="probability/certainty of task completion (higher values estimate higher)")
 
 parser.add_argument("--verbose", action="store_true", help="more output")
 
@@ -68,7 +67,7 @@ def allWordsOf(listOfStrings):
         result.update(words)
     return result
 
-def algorithm(toEstimate, model, probabilityInPercent):
+def algorithm(toEstimate, model):
     """
         the algorithm that performs the estimation
     """
@@ -78,12 +77,7 @@ def algorithm(toEstimate, model, probabilityInPercent):
 
     for word in words:
         if word in model:
-            randomSamples = list()
-            for i in range(0,101):
-                sample = random.choice(model[word])
-                randomSamples.append(sample)
-            randomSamples.sort()
-            duration_in_seconds = randomSamples[probabilityInPercent]
+            duration_in_seconds = model[word]
             verbose("- found historic duration information for " + word + " : " + str(duration_in_seconds))
             sum_duration_in_seconds += duration_in_seconds
 
@@ -108,6 +102,10 @@ if args.learn:
             verbose("remember " + word + " as " + str(duration_per_word) + " seconds")
             word_values[word].append(duration_per_word)
 
+    for word in word_values:
+        list_of_values = word_values[word]
+        word_values[word] = statistics.mean(list_of_values)
+    
     las.save_json(args.output, word_values)
 
 
@@ -115,14 +113,14 @@ if args.estimate:
     """estimate a new task"""
     
     model = las.load_json(args.model)
-    print (algorithm(args.input, model, args.probabilityInPercent))
+    print (algorithm(args.input, model))
 
 if args.validation:
     """estimate a bunch of tasks to validate algorithm"""
     verbose ("Estimating all tasks in " + args.input)
     model = las.load_json(args.model)
     tasksToEstimate = las.load_csv(args.input)
-    tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model, args.probabilityInPercent), axis=1)
+    tasksToEstimate["EstimateInSeconds"] = tasksToEstimate.apply(lambda row: algorithm(row["Name"], model), axis=1)
     las.save_csv(args.output, tasksToEstimate)
 
 

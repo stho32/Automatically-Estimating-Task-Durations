@@ -46,7 +46,16 @@
             "estimate" : "python3 ../Source/a003_1/a003_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
             "active" : true,
-            "force_run" : true
+            "force_run" : false
+        },
+        {
+            "name": "A004",
+            "model": "./a004_model.json",
+            "learn": "python3 ../Source/a004/a004.py --learn --input @@trainOn@@ --output @@model@@",
+            "estimate":"python3 ../Source/a004/a004.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
+            "parameters" : [],
+            "active" : true,
+            "force_run": true
         }
     ],
     "output_template" : "./output/@@name@@_@@trainOn@@_@@estimate@@_@@filenameext@@",
