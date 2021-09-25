@@ -54,6 +54,52 @@ def create_image_scatterHours(filename, df):
     fig.write_image(filename + ".scatter.png", width=1200, height=700, scale=1)
     #fig.show()
 
+def create_image_error_distribution(filename, df):
+    mydf = df.copy()
+    mydf['EstimationErrorInSeconds'] = mydf.apply (lambda row: row["EstimateInSeconds"] - row["DurationInSeconds"], axis=1)
+    mydf['DurationInHours'] = mydf.apply (lambda row: row["DurationInSeconds"]/60/60, axis=1)
+    mydf['DurationAsHour'] = mydf.apply (lambda row: round(row["DurationInSeconds"]/60/60,0), axis=1)
+    mydf['EstimationErrorInHours'] = mydf.apply (lambda row: row["EstimateInSeconds"]/60/60, axis=1)
+
+    result = list()
+
+    for i in range(0,40):
+        taskCount=len(mydf[mydf["DurationAsHour"]==i])
+        mean = mydf[mydf["DurationAsHour"]==i]["EstimationErrorInHours"].mean()
+        standard_deviation = mydf[mydf["DurationAsHour"]==i]["EstimationErrorInHours"].std()
+        standard_deviation_minus = mean - standard_deviation
+        standard_deviation_plus = mean + standard_deviation
+        result.append(dict (
+            task_duration_in_about_hours = i,
+            taskCount = taskCount,
+            mean = mean,
+            standard_deviation = standard_deviation,
+            standard_deviation_minus = standard_deviation_minus,
+            standard_deviation_plus = standard_deviation_plus
+        ))
+
+    error_distribution = pd.DataFrame(result)
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=error_distribution["task_duration_in_about_hours"], y=error_distribution["mean"], mode='lines',name='mean error'))
+    fig.add_trace(go.Scatter(x=error_distribution["task_duration_in_about_hours"], y=error_distribution["standard_deviation_plus"], mode='lines',name='+'))
+    fig.add_trace(go.Scatter(x=error_distribution["task_duration_in_about_hours"], y=error_distribution["standard_deviation_minus"], mode='lines',name='-'))
+
+    fig.update_layout(
+        title = filename,
+        plot_bgcolor='rgb(230, 230,230)',
+        showlegend=True)
+
+    fig.update_layout(
+        legend=dict(
+            yanchor="top",
+            y=0.99,
+            xanchor="left",
+            x=0.01
+        ))
+
+    fig.write_image(filename + ".error_distribution.png", width=1200, height=700, scale=1)
+
 def create_statistics(algorithm, trainingOn, estimating, parameters, filename, df):
     mean = df["HoursDifference"].mean()
     standard_deviation = df["HoursDifference"].std()
