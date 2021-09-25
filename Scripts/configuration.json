@@ -13,7 +13,8 @@
                 { "label" : "90%P", "value" : "90", "filenameext" : "090" },
                 { "label" : "99%P", "value" : "99", "filenameext" : "099" }
             ],
-            "active" : true
+            "active" : true,
+            "force_run" : false
         },
         {
             "name": "A002.1",
@@ -21,7 +22,8 @@
             "learn" : "python3 ../Source/a002_1/a002_1.py --learn --input @@trainOn@@ --output @@model@@",
             "estimate" : "python3 ../Source/a002_1/a002_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
-            "active" : true
+            "active" : true,
+            "force_run" : false
         },
         {
             "name": "A002.2",
@@ -34,7 +36,8 @@
                 { "label" : "L85%P", "value" : "85", "filenameext" : "085", "model" : "./a002_2_085_model.json" },
                 { "label" : "L95%P", "value" : "95", "filenameext" : "095", "model" : "./a002_2_095_model.json" }
             ],
-            "active" : true
+            "active" : true,
+            "force_run" : false
         },
         {
             "name": "A003.1",
@@ -42,7 +45,8 @@
             "learn" : "python3 ../Source/a003_1/a003_1.py --learn --input @@trainOn@@ --output @@model@@",
             "estimate" : "python3 ../Source/a003_1/a003_1.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
-            "active" : true
+            "active" : true,
+            "force_run" : true
         }
     ],
     "output_template" : "./output/@@name@@_@@trainOn@@_@@estimate@@_@@filenameext@@",
