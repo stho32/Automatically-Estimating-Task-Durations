@@ -10,8 +10,21 @@
 \input{Scripts/output/summary-table}
 
 \end{landscape}
-\newpage
-\subsection{Box-Plots INPUT/OUTPUT for the lower 90\% of tasks}
 
+\subsection{Error distribution in tasks below or equal 40 hours duration}
+
+Our data, at the moment, is very limited. 
+Especially above 40 hours duration you will find that there are just a few tasks that ever got there.
+And since this is the case the algorithms do not have many chances to "get that right".
+
+Since that is the case, we have decided to cut the graphs >= 40 hours. 
+This way we can see the results better in the lower ranges.
+It is not far of to just accept that tasks above a certain range should only be guessed when
+enough data is available and in case you are curious: yes, if you could see the rest of the graphs, there
+is not much more than big errors to find.
+
+\newpage
 \input{Scripts/output/summary-graphs}
+
+
 
