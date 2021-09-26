@@ -18,8 +18,8 @@ def analyse(algorithm, trainingOn, estimating, parameter, filename):
     
     df = analytics.grab_data.grab_prepared_data(filename)
 
-    hl.create_image_scatterHours(filename, df)
-    hl.create_image_boxplot(filename, df)
+    #hl.create_image_scatterHours(filename, df)
+    #hl.create_image_boxplot(filename, df)
     hl.create_image_error_distribution(filename, df)
     hl.create_statistics(algorithm, trainingOn, estimating, parameter, filename, df)
 
