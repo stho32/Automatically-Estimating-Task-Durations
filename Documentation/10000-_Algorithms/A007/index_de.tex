@@ -1,0 +1,37 @@
+\newpage{}
+
+\subsection{A007 - Volltextsuche}
+
+Viele unserer Algorithmen arbeiten, in dem sie Worten bestimmte Bedeutung zumessen.
+Bei unserer Betrachtung unserer gesammelten Aufgaben und unserer täglichen Arbeit kam die Idee auf, dass man den Zusammenhang zwischen Worten besser berücksichtigen könnte, wenn man längere Sequenzen berücksichtigt. 
+Das würde insbesondere Aufgaben entgegen kommen, die wir standardisiert haben.
+Diese haben in der Regel einen großen Anteil in dem generierten Aufgabenbetreff gleich.
+
+Also was würde passieren, wenn wir unsere Schätzmaschine eigentlich als Suchmaschine nach ähnlichen Aufgaben betrachten würden.
+
+\subsubsection{Lernen - Initialisierung}
+
+Für eine Volltextsuche erstellen wir zunächst einen Index. Über diesen erhält jedes Wort 2 Relevanzen: eine gegenüber seinem Dokument und eine gegenüber dem Gesamtkorpus.
+
+\begin{itemize}
+        \tightlist
+        \item Enthält eine Aufgabe sehr viele Worte, so ist die Relevanz eines Wortes, dass in diesem Dokument einmal auftaucht, geringer als ein Wort, dass mehrfach auftaucht. D.h. die Relevanz eines Wortes, dass zunächst neben dem Indexeintrag abgelegt wird, ist (Anzahl der Vorkommen)/(Anzahl der Worte in der Aufgabenbeschreibung).
+        \item Ist ein Wort in sehr vielen Aufgaben enthalten, so nimmt seine relative Relevanz ab. Zum Beispiel ist "und" oder das aufgrund unseres Parsers enthaltene "," recht häufig anzutreffen. Die Relevanz des Wortes bezüglich des gesamten Korpus aller bekannten Aufgaben bestimmen wir ebenfalls als (Anzahl der Vorkommen)/(Anzahl der Aufgaben, die dieses Wort enthalten).
+\end{itemize}
+
+Während die meisten Modelle eine Kompression der Datenmenge darstellen, ist das bei diesem Algorithmus nicht so, weil wir die vollen Dokumente im Modell ablegen müssen, damit wir eindeutige Referenzen haben und nachher unsere Entscheidungen auch begründen können.
+
+\subsubsection{Schätzen}
+
+\begin{itemize}
+        \tightlist
+        \item Zunächst wird der zu schätzende Text in Worte zerlegt.
+        \item Dann wird zu jedem Wort die Liste der zugeordneten Dokumente geholt. Wir schreiben in ein Zwischenergebnis alle Dokumente, die wir gefunden haben. Dazu schreiben wir das Wort und seine Relevanz im Verhältnis zur Aufgabe sowie die im Modell gespeicherte Relevanz im Verhältnis zum gesamten Korpus.
+        \item Als Ergebnis erhalten wir eine Liste von Dokumenten, daran hängen jeweils eine Liste von Worten, die beinhalten 1*eine Dokumentrelevanz und einmal eine Korpusrelevanz.
+        \item Wir summieren nun pro Dokument das Produkt aus den beiden Relevanzen.
+        \item Dann sortieren wir die Dokumente absteigend nach ihrer Gesamtrelevanz.
+        \item Schließlich nehmen wir die top 3 Aufgaben. Die Dauer der neuen Aufgabe ist hierbei der arithmetische Durchschnitt der Dauern der 3 gefundenen Aufgaben.
+\end{itemize}
+
+
+

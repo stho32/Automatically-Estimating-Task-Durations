@@ -1,0 +1,1 @@
+{"algorithm": "A007", "trainingOn": "SWE-Archiv-2020.csv", "estimating": "SWE-Archiv-2020.csv", "parameters": {"label": "TOP3", "value": "3", "filenameext": "003", "model": "./a007_model.json"}, "mean": 0.2583233952427499, "standard_deviation": 7.123525738135029, "mse": 50.761746185320945}

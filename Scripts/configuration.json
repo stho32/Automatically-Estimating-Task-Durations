@@ -55,8 +55,22 @@
             "estimate":"python3 ../Source/a004/a004.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@",
             "parameters" : [],
             "active" : true,
+            "force_run": false
+        },
+        {
+            "name": "A007",
+            "model": "./a007_model.json",
+            "learn": "python3 ../Source/a007/a007.py --learn --input @@trainOn@@ --output @@model@@",
+            "estimate":"python3 ../Source/a007/a007.py --validation --input @@estimate@@ --output @@output@@ --model @@model@@ --top @@parameter@@",
+            "parameters" : [
+                { "label" : "TOP1", "value" : "1", "filenameext" : "001", "model" : "./a007_model.json" }, 
+                { "label" : "TOP3", "value" : "3", "filenameext" : "003", "model" : "./a007_model.json" },
+                { "label" : "TOP10", "value" : "10", "filenameext" : "010", "model" : "./a007_model.json" }                
+            ],
+            "active" : true,
             "force_run": true
         }
+
     ],
     "output_template" : "./output/@@name@@_@@trainOn@@_@@estimate@@_@@filenameext@@",
     "datarootdir" : "../../Automatically-Estimating-Task-Durations-Private",

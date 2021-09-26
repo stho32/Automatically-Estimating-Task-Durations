@@ -1,0 +1,41 @@
+\newpage{}
+
+\section{A004 - reducing dispersion by assigning a concrete value per
+word and learning from
+it}
+
+A001 collects as many different values for each word as it can get. 
+When estimating, it uses any of those values more or less randomly (of cause
+smoothend by the fact that we take 100 random values and then only use a
+value from a certain position representing the percentage of certainty
+we want to have). 
+That hinders our ability to ``learn''.
+
+The idea behind A004 is to assign just one value to each word.
+This way, when we see our error margin we might design a little learning by adding or reducing the values a bit and see what happens.
+
+\subsection{Learning - the Initialisation}
+
+At the beginning we learn just the same way like A001 did.
+The only difference is, that instead of saving n values per word we just save one, the average of all beformentioned values. 
+
+\subsection{Learning - Adapting}
+
+\begin{enumerate}
+        \tightlist
+        \item starting from the base model we create 10 mutations by randomly adding and substracting 1/10th of the value for each word.
+        \item we calculate the mean squared error of all mutations
+        \item the mutation with the smallest mean squared error becomes the new base model
+        \item repeat n times from the beginning
+\end{enumerate}
+
+\subsection{Estimating}
+
+\begin{enumerate}
+        \tightlist
+        \item split the text we want to estimate into words
+        \item for every word use the saved value as duration
+        \item add all values gained this way, the sum is our estimate
+\end{enumerate}
+
+
