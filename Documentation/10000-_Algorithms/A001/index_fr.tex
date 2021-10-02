@@ -1,34 +1,51 @@
 \newpage{}
 
-\hypertarget{a001---duration-per-word}{%
-\section{A001 - Duration per Word}\label{a001---duration-per-word}}
+\subsection{A001 - Durée par mot}
 
-\hypertarget{description}{%
-\subsection{Description}}
+C'est un algorithme très très simple et c'est le premier 
+auquel j'ai pensé.
 
-Let us dive in with a very very simple algorithm. In fact it is the
-first algorithm I tought of.
-
-Let's say we have a task. May it read ``Buy a big book and put it in the
-shelf''. And this takes a certain amount of time.
+Disons qu'on a une tâche avec comme description "Achète 
+un livre et met-le sur l'étagère." Et cette tâche a une 
+certaine durée.
 
 \begin{verbatim}
-AmountOfTime = "Buy a big book and put it in the shelf"
+CertaineDuree = "Achète un livre et met-le sur l'étagère."
 \end{verbatim}
 
-Ok, I know, language doesn't really work like that. But lets us play
-stupid right now. We just split the thing into words and distribute the
-duration equally to each word. The sentence above is 10 words long, so
-each word gets a tenth of AmountOfTime associated with it.
+Le algorithme vise à décomposer la phrase en plusieurs mots 
+et divise la durée de la tâche sur des mots.
 
-Now we have a minimal time table.
+Par exemple:
+\begin{verbatim}
+10 minutes = Achète un livre et met-le sur l'étagère.
 
-We can now take another input, like ``Buy a small book''.
+split = "Achète un livre et met-le sur l'étagère.".split()
+wordDuration = 10minutes/split.length()
 
-We know the durations associated with ``Buy'', ``a'' and ``book''. We
-will have to do something about the unknown word. Ignore it, or add 10\%
-to the sum of the known durations. Something like that. And voilà, we
-have a time estimate.
+10 minutes/7 => Achète    = 1,428 minutes
+10 minutes/7 => un        = 1,428 minutes
+10 minutes/7 => livre     = 1,428 minutes
+10 minutes/7 => et        = 1,428 minutes
+10 minutes/7 => met-le    = 1,428 minutes
+10 minutes/7 => sur       = 1,428 minutes
+10 minutes/7 => l'étagère = 1,428 minutes
+\end{verbatim}
+
+Alors on obtient une table de durées.
+
+Aprés ça on peut prendre une autre tâche: 
+"Achète un petit livre".
+
+On connait les durées de "Achète", "un" et "livre".
+On doit faire quelque-chose avec "petit", par example 
+ignorer ou multiplier le resultat des autre mot par 10\%.  
+
+Et voilà, on a une estimation de la durée.
+
+\begin{verbatim}
+1,428 minute + 1,428 minute + 1,428 minute = 4.284 minutes
+\end{verbatim}
 
 Funny thing:
 

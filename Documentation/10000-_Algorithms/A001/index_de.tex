@@ -1,55 +1,54 @@
 \newpage{}
 
-\section{A001 - Duration per Word}
+\subsection{A001 - Dauer pro Wort}
 
-\hypertarget{description}{%
-\subsection{Description}}
+Wir beginnen mit einem sehr sehr einfachen Algorithmus, dem tatsächlich ersten, 
+der mir in den Sinn kam.
 
-Let us dive in with a very very simple algorithm. In fact it is the
-first algorithm I tought of.
-
-Let's say we have a task. May it read ``Buy a big book and put it in the
-shelf''. And this takes a certain amount of time.
+Sagen wir, wir haben da eine Aufgabenbeschreibung. Vielleicht "Kaufe ein Buch
+und lege es im Regal ab.". Und diese Aufgabe dauert eine bestimmte Zeit.
 
 \begin{verbatim}
-AmountOfTime = "Buy a big book and put it in the shelf"
+Dauer = "Kaufe ein Buch und lege es im Regal ab."
 \end{verbatim}
 
-Ok, I know, language doesn't really work like that. But lets us play
-stupid right now. We just split the thing into words and distribute the
-duration equally to each word. The sentence above is 10 words long, so
-each word gets a tenth of AmountOfTime associated with it.
+Ok, ich weiß, Sprache funktioniert nicht wirklich so. 
+Aber wir stellen uns jetzt mal doof und tun so als ob.
+ 
+Wir teilen den Satz in Worte auf und 
+verteilen die Dauer gleichmäßig auf jedes Wort. Der Satz oben ist 9 Worte lang.
 
-Now we have a minimal time table.
+Also bekommt jedes Wort 1/9tel der Dauer assoziiert.
 
-We can now take another input, like ``Buy a small book''.
+Damit haben wir eine einfache Tabelle mit Zeiten.
 
-We know the durations associated with ``Buy'', ``a'' and ``book''. We
-will have to do something about the unknown word. Ignore it, or add 10\%
-to the sum of the known durations. Something like that. And voilà, we
-have a time estimate.
+Jetzt können wir eine andere Aufgabe nehmen, also z.B. "Kaufe ein kleines Buch".
 
-Funny thing:
+Wir kennen die zugeordneten Dauern zu "Kaufe", "ein" und "Buch". Wir 
+werden etwas mit dem unbekannten Wort machen müssen. Es ignorieren oder 10\%
+auf die Summe der bekannten Dauern aufschlagen. Irgendsowas. Und voilà, 
+schon haben wir eine Zeitschätzung.
 
-It is actually quite reasonable for the time being, that, in the absence
-of further information, assigning half the duration to each subtask is
-not the most stupid thing one could do.
+Lustige Sache:
 
-And it is actually quite reasonable to think that buying a small book is
-about the effort of buying a big one. But that is just the example.
+Es ist tatsächlich in diesem Fall nicht ganz undenkbar, dass, in der Abwesenheit
+weiterer Informationen, die zweite Aufgabe etwa halb so viel Zeit brauchen
+könnte, wie die Aufgabe, von der wir "gelernt" haben.
 
-Anyways, we now have a time estimate and noone got hurt.
+Aber das ist nur in diesem Fall so. 
 
-\hypertarget{using-the-algorithm-from-powershell}{%
-\subsection{Using the algorithm from powershell}}
+Egal. Wir haben eine Zeitschätzung und niemand wurde verletzt!
 
-The algorithm is added to EstimatePS, see
-Source/experiments/duration-per-word/experiment1.ps1 for a complete
-example with learning, caching and usage.
+\subsection{Den Algorithmus über Powershell verwenden}
 
-Finally it is as easy as:
+Der Algorithmus ist Teil von "EstimatePS". Das ist ein Powershell-Modul, 
+welches auch über die Powershell-Gallery verfügbar ist.
+Du kannst Dir gerne Source/experiments/duration-per-word/experiment1.ps1 als 
+Referenz ansehen, wie es verwendet wird.
+
+Am Ende ist es so einfach:
 
 \begin{verbatim}
-$inSeconds = Get-DPWEstimate -Model $model -DurationInSecondsFor "add a new bookkeeping api" -ProbabilityInPercent 95
+$inSekunden = Get-DPWEstimate -Model $model -DurationInSecondsFor "Kaufe ein Buch und lege es im Regal ab." -ProbabilityInPercent 95
 \end{verbatim}
 
