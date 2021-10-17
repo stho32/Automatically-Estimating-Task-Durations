@@ -49,10 +49,27 @@ zusätzlichen Spalten:
 - Spalte "DurationInSeconds": "Time spent" umgerechnet in Sekunden.
 - Spalte "EstimateInSeconds": Die Dauer, die der Algorithmus geschätzt hat, ebenfalls in Sekunden.
 
-HIER WEITER
+\subsection{Tabellarische Analyse}
 
-\hypertarget{the-graphical-approach}{%
-\subsection{The graphical approach}\label{the-graphical-approach}}
+Am Ende des E-Books wird eine Tabelle mit den Ergebnissen aller Algorithmen über alle 
+Datenmengen-Zusammenstellungen automatisch generiert.
+
+Die Tabelle hat folgende Spalten:
+
+- Algorithm: Der Name des Algorithmus
+- Training on: Der Name der Trainings-Datenmenge
+- Estimating: Der Name der geschätzten Datenmenge
+- With Params: Der Parameter, falls es einen gibt, der verwendet wurde
+- Deviation: Mittelwert und Standardabweichung des Schätzfehlers in Stunden
+- mse: Mean Squared Error, durchschnittlicher quadratischer Fehler
+
+\subsection{Grafische Analyse}
+
+Mit den Werten aus der Tabelle erhält man einen schnellen Überblick. 
+Im Grunde könnte man nun behaupten, dass ist es, niedriger Fehler bedeutet alles gut. 
+Das leider nicht ganz so einfach.
+
+HIER WEITER
 
 One easy way would be to draw a graph which shows the predictions and
 the real values for time spent, while each task is understood as a
