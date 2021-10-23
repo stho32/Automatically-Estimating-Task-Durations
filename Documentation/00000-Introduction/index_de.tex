@@ -4,77 +4,22 @@
 Um es kurz zu machen: 
 
 Aufgabendauern schätzen ist im Grunde eine Katastrophe. 
-Man kann viel Aufwand hineinstecken und dennoch werden sie nie wirklich gut. 
-Und während man nach Perfektion strebt und sich selbst dabei aufreibt investiert man 
-mehr und mehr Zeit und erwischt sich letztlich dabei, dass man mehr Zeit mit schätzen 
-verbraucht, als die Aufgabe eigentlich dauert und/oder wert ist.
 
-Leider werden wir gleichzeitig Schätzungen nicht vollständig los, weil wirtschaftliches 
-Handeln nun mal eine entsprechende Betrachtungsweise vor Beginn einer Arbeit voraussetzt. 
+Neben vielen anderen Effekten, wie Arbeitszeitverlust durch Schätzaufwand: Wenn ein Mensch schätzt, entsteht daraus ein emotionales Durcheinander. Der Chef schätzt die Aufgabe zu gering? Man selbst zu hoch? Wie kann der nur! Das ist nicht gut, denn eigentlich wollen wir alle das gleich: großartige Software.
 
-Wir können Sie nicht loswerden, aber mit passenden Automatisierungen können wir mehr 
-positive Effekte und weniger negative Effekte gewinnen:
+Leider werden wir gleichzeitig Schätzungen nicht vollständig los, weil wirtschaftliches Handeln nun mal eine entsprechende Betrachtungsweise vor Beginn einer Arbeit voraussetzt. 
 
-\begin{itemize}
-\tightlist
-\item 
-    Da wir die Schätzungen Algorithmen überlassen und diese anhand tatsächlicher Daten vorgehen, 
-    sind sie nicht einfach nur "wildes Herumgerate". 
-    Sie können eine bestimmte Arbeits-Pipeline beobachten und besser und besser werden, je nachdem 
-    wie sich die Pipeline (z.B. unsere Abteilung) schlägt.
-\item
-    Algorithmen arbeiten systematisch. 
-    Wie sie zu ihrem Ergebnis gelangen ist dokumentiert. 
-    Auf diese Weise nehmen sie typische menschliche Fehler aus der Gleichung, z.B. : 
-    "Der Chef wird die Schätzung eh halbieren, also verdoppel ich sie besser..." 
-    oder 
-    "Wenn der Chef die Schätzung sieht reduziert er sie auf 15 Minuten, weil die 
-    Komplexität der Herausforderung nicht einfach sichtbar ist." 
-    (Ok, um ganz genau zu sein verhindern die Algorithmen das nicht per se. 
-    Aber man hat wenigstens ein bisschen Freude daran zu fragen, wie sie darauf kommen, 
-    dass Sie besser als der Alorithmus sind.)
-\item
-    Da Arbeiten wie dieses PDF und wissenschaftliche Methoden verfügbar sind, können 
-    Algorithmen auf ihre Wirksamkeit geprüft werden. 
-    Damit können sie systematisch verbessert werden. 
-    Damit haben wir die Möglichkeit besser und besser zu werden.
-\item
-    Man kann einfacher kommunizieren, dass es sich um eine Schätzung handelt. 
-    Während eigentlich alles darauf hin deutet, dass die Schätzung eh besser ist, 
-    als sie je ein Mensch machen könnte, ist es sogar klarer, dass Algorithmen eben 
-    nur so gut sind wie sie sein können. 
-    Es sind also wirklich wirklich Schätzungen und es ist kein Fixdatum, dass herausgegeben wird.
-\item
-    Geschäftsmenschen können ihre Zeitschätzungen in nahezu Echtzeit haben. 
-    (Natürlich werden sie früher oder später an den Texten herumbasteln, um zu gucken, 
-    wie die Algos funktionieren und wie sie sie zu günstigen Schätzungen beschupsen. 
-    Aber der daraus entstehende Schaden ist klar ihr eigener, also los Jungs, 
-    schneidet euch nicht am Papier. 
-    Außerdem ist es nicht unbedingt gesagt, dass das nicht aus Versehen tatsächlich 
-    funktioniert. 
-    Wenn z.B. die Änderung in 2 Anwendungen implementiert werden könnte, 
-    aber die eine ist nun mal einfacher zu erweitern, was die Daten so auch 
-    wiederspiegeln? Win-win)
-\item
-    Ein sehr wichtiger Punkt ist, dass die Entwickler jener Geschäftsmenschen in der 
-    Zeit programmieren können. Frei nach dem Motto: 
-    "Wenn ich 40 Stunden pro Woche für Dich Projekte plane, warum bist Du am Ende 
-    der Woche entsetzt, wenn nichts programmiert ist?" 
-    Automatisierung der Schätzungen bedeutet also wir Entwickler sind produktiver.
-\item
-    Der Umstand, dass wir Entwickler das machen können, was sie mehr mögen - Software 
-    entwickeln - macht uns glücklicher. 
-    Wir müssen uns nicht mehr um die Leute kümmern, die uns nach  Schätzungen fragen, 
-    nur um sie dann, wenn sie nicht von vornherein mies waren, ad absurdum zu führen 
-    um dann für nur mehr oder weniger scheinbar existente Deadlines zur Rechenschaft 
-    gezogen zu werden.
-\end{itemize}
+Algorithmen sind neutrale Dritte, die sich an den Daten orientieren, welche wir Ihnen geben. Vorraussichtlich sind das echte Daten aus echten Messungen. Sie sind nachvollziehbar, prüfbar und können Schrittweise verbessert werden.
 
-Also soweit die Idee. 
-Schauen wir, ob es funktioniert. 
-Vielleicht nicht, aber ich schätze die Chance eigentlich recht positiv ein. 
-Schließlich ist das einzige, was wir zu verlieren haben, schlechte Schätzungen. 
-Und das was wir gewinnen können sind Schätzungen, vielleicht genauso mies, 
-aber wenigstens kosten sie uns keine Zeit mehr. 
-Also los gehts.
+Dazu kosten uns diese Zeitschätzungen weniger Zeit. (Humor am Rande: Jedenfalls allen außer mir, denn diese Arbeit hat schon mehr Zeit in Anspruch genommen, als ich je gedacht hätte.)
+
+Dieses E-Book basiert auf den Messungen und Experimenten, die wir in der Abteilung bei meinem Arbeitgeber durchführen konnten. Zugegeben haben wir keine besonders große Datenbasis oder viele Mitarbeiter. Vor kurzem waren wir noch 3, jetzt sind wir 2 Entwickler. Vielleicht erlaubt uns diese Größe aber auch noch, qualitative Betrachtungsweisen einfacher anstellen zu können. 
+
+Wir zeichnen die Arbeitszeit, die wir mit Aufgaben verbringen auf. Und das nun schon eine ganze Weile, was zwei Datensets mit jeweils etwa 1000 Aufgaben erschaffen hat. 
+
+Das E-Book ist aber so entwickelt, dass Sie sich das Buch und den zugehörigen Code auf github forken können und die Algorithmen und ihre Prüfungen über ihre eigenen Datenbestände laufen lassen können. Schließlich wollen Sie ja sicher Ihre Aufgaben schätzen, und nicht unsere.
+
+Ich wünsche Ihnen viel Spaß und Erfolg,\\
+Stefan Hoffmann\\
+Berlin, den 23.10.2021
 
