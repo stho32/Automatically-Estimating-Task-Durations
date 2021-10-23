@@ -5,63 +5,66 @@
 \subsection{Allgemein}
 
 Wenn wir in den nächsten Kapiteln Algorithmen betrachten, dann müssen 
-wir sagen können, wie gut sie sind. 
-
-Dazu müssen wir einen gemeinsamen Standard etablieren.
+wir sagen können, wie gut sie sind. Und dazu müssen wir einen gemeinsamen Standard etablieren.
 
 Die Ausführung der Algorithmen wird über die `Scripts/configuration.json` 
 koordiniert. Hier können Datenquellen angegeben werden, unabhängig davon 
 werden die Algorithmen konfiguriert, jeweils mit ihren Aufrufen für "Lernen"
 und "Anwenden". 
 
-Des Weiteren kann ein flexibler Parameter angegeben werden, falls für einen Algorithmus
-mehrere Varianten existieren. 
-Die notwendigen Aufrufe werden dabei automatisch ausmultipliziert.
+Des Weiteren kann ein flexibler Parameter angegeben werden, falls für einen Algorithmus mehrere Varianten existieren. Die notwendigen Aufrufe werden dabei automatisch permutiert, so dass man sich darum nicht kümmern muss. Die Dateinamen, in denen das Modell für den entsprechenden Algorithmus abgelegt wird, wird ebenfalls automatisch zusammengebaut.
 
-Datenquellen werden in einer Kombination angegeben. Jeweils eine Datenquelle für 
-das Erlernen und eine für den Test. 
+Datenquellen werden in einer Kombination angegeben. Jeweils eine Datenquelle für das Erlernen und eine für den Test. 
 
 \subsection{Aufbau der Eingabedatenquellen}
 
 Wir arbeiten im Rahmen dieser Arbeit ausschließlich mit CSV als Dateiformat. 
 
-- Wir trennen Werte mit dem Komma
-- Wir umschließen Werte mit Double-Quotes
-- Zahlen werden mit . als Dezimaltrennzeichen angegeben
-- Das Umschließen der Zahlen ebenfalls mit Double-Quotes ist erlaubt
+\begin{itemize}
+  \item Wir trennen Werte mit dem Komma.
+  \item Wir umschließen Werte mit Double-Quotes.
+  \item Zahlen werden mit Punkt (.) als Dezimaltrennzeichen angegeben, also z.B. 10.36 .
+  \item Das Umschließen der Zahlen ebenfalls mit Double-Quotes ist erlaubt.
+  \item In der ersten Zeile stehen die Spaltennamen.
+\end{itemize}
 
-- Spalte 1: "Name" (Zeichenkette)
-- Spalte 2: "Time spent" (Fließkommazahl)
+Wir nutzen folgende Spalten:
+\begin{itemize}
+  \item Spalte 1: "Name" (Zeichenkette)
+  \item Spalte 2: "Time spent" (Fließkommazahl)\\
+        Die "Time spent" wird in Stunden angegeben.   
+\end{itemize}
 
-Die "Time spent" wird in Stunden angegeben. 
 In unseren Testdaten ist die Genauigkeit auf 3 Nachkommastellen begrenzt, 
 es sollten aber ohne Probleme noch mehr verwendet werde können.
 
-Es können weitere Spalten angegeben werden, falls sie vom Algorithmus verwendet 
-werden sollen. In dieser Arbeit verwenden wir aber nur diese beiden. 
+Es können weitere Spalten angegeben werden, falls sie vom Algorithmus verwendet werden sollen. In dieser Arbeit verwenden wir aber nur diese beiden. 
 
 \subsection{Aufbau der Ausgabedatenquellen}
 
-Durch die Verarbeitung über einen Algorithmus werden im Verzeichnis Scripts\\output
-Ausgabe-CSV-Dateien erstellt. Das sind im Grunde die gleichen Dateien mit folgenden
-zusätzlichen Spalten:
+Durch die Verarbeitung über einen Algorithmus werden im Verzeichnis Scripts\\output Ausgabe-CSV-Dateien erstellt. Das sind im Grunde die gleichen Dateien mit folgenden zusätzlichen Spalten:
 
-- Spalte "DurationInSeconds": "Time spent" umgerechnet in Sekunden.
-- Spalte "EstimateInSeconds": Die Dauer, die der Algorithmus geschätzt hat, ebenfalls in Sekunden.
+\begin{itemize}
+  \item Spalte "DurationInSeconds"\\ 
+        "Time spent" umgerechnet in Sekunden.
+  \item Spalte "EstimateInSeconds"\\ 
+        Die Dauer, die der Algorithmus geschätzt hat, ebenfalls in Sekunden.
+\end{itemize}
 
 \subsection{Tabellarische Analyse}
 
-Am Ende des E-Books wird eine Tabelle mit den Ergebnissen aller Algorithmen über alle 
-Datenmengen-Zusammenstellungen automatisch generiert.
+Am Ende des E-Books wird eine Tabelle mit den Ergebnissen aller Algorithmen über alle Datenmengen-Zusammenstellungen automatisch generiert.
 
 Die Tabelle hat folgende Spalten:
 
-- Algorithm: Der Name des Algorithmus
-- Training on: Der Name der Trainings-Datenmenge
-- Estimating: Der Name der geschätzten Datenmenge
-- With Params: Der Parameter, falls es einen gibt, der verwendet wurde
-- Deviation: Mittelwert und Standardabweichung des Schätzfehlers in Stunden
-- mse: Mean Squared Error, durchschnittlicher quadratischer Fehler
+\begin{itemize}
+    \item Algorithm: Der Name des Algorithmus
+    \item Training on: Der Name der Trainings-Datenmenge
+    \item Estimating: Der Name der geschätzten Datenmenge
+    \item With Params: Der Parameter, falls es einen gibt, der verwendet wurde
+    \item Deviation: Mittelwert und Standardabweichung des Schätzfehlers in Stunden
+    \item mse: Mean Squared Error, durchschnittlicher quadratischer Fehler
+\end{itemize}
 
 \subsection{Grafische Analyse}
 
