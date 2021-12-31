@@ -29,7 +29,7 @@ Look yourself:
 ## More, including docs
 
 Find a more complete documentation in the releases : 
-https://github.com/stho32/Estimating-Task-Durations/releases/tag/latest
+https://github.com/stho32/Automatically-Estimating-Task-Durations/releases/tag/latest
 
 You will find there a PDF document containing the documentation to everything, including code references. 
 
